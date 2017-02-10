@@ -1,0 +1,126 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>前端求职</title>
+	<link rel="stylesheet" href="{% static 'resume/style.css' %}">
+	<!-- 加载动画在这下面 -->
+	<link rel="stylesheet" href="{% static 'resume/loading.css' %}">
+</head>
+<body>
+<!-- 主体 -->
+<div class="main">
+	<header class="header clearfix">
+		<div class="information">
+			<ul>
+				<li>
+					<span class="left">姓名 : <a href="" onclick="return false" class="callCover">王庆欣</a></span>籍贯 : 山东 临沂</li>
+				<li>
+					<span class="left">院校 : 湖南人文科技学院</span>专业 : 书法学(13级)</li>
+				<li>
+					<span class="left tel">电话 : <a href="tel:18773822412" >18773822412</a><a href="" onclick="return false;" class="tel-show copy" data-contact="18773822412:王庆欣"> 复制</a>
+					</span>
+					<span class="mail">邮箱 : <a class="call-mail-tip" href="mailto:qxguge@gmail.com" >qxguge@gmail.com</a>
+					</span>
+						<span class="mail-tip">
+						<i class="red">q</i>ing<i class="red"> x</i>in<i class="red"> guge</i>
+						<br>
+						&nbsp;庆&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;欣&nbsp;&nbsp;谷&nbsp;歌&nbsp;@gmail.com</em>
+						</span>
+				</li>
+			</ul>
+			<div class="icons">
+				<a href="" class="icon blog">
+					<span class="line line-top"></span>
+					<span class="line line-right"></span>
+					<span class="line line-bottom"></span>
+					<span class="line line-left"></span>
+				</a>
+				<a href="mailto:qxguge@gmail.com" class="icon mail">
+					<span class="line line-top"></span>
+					<span class="line line-right"></span>
+					<span class="line line-bottom"></span>
+					<span class="line line-left"></span>
+				</a>
+			</div>
+		</div>
+		<div class="img ">
+			<div class="photo">
+				<div class="photo-background"></div>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+		<div class="content skills">
+			<h2>技能</h2>
+			<p>
+				<span class="skill html" data-content="一知半解,后面的css3也是来凑热闹的"></span>
+				<!-- <span class="skill css" data-content="接前面,担心hr看到,更害怕根本就不会浏览"></span> -->
+				<span class="skill css" data-content="这里本来有句话,后来给删了"></span>
+				<span class="skill js" data-content="js,懂点,懂点"></span>
+				<span class="skill jq" data-content="页面上没有jq,"></span>
+				<span class="skill ps" data-content="技术还好,素材自己拼的"></span>
+			</p>
+			<div class="tip"><em></em><span></span></div>
+		</div>
+		<div class="content exp">
+			<h2>项目经验</h2>
+			<p>undefined <span class="hide">此网站就是做过的最大的项目</span></p>
+		</div>
+		<div class="content work">
+			<h2>工作经历</h2>
+			<p>null </p>
+			<span class="hide">找工作需要工作经验,工作经验需要工作。嗯, 求 <a href="" onclick="return false" class="callCover">拯救 ← Click Me</a></span>
+		</div>
+	</div>
+</div>
+<!-- 卷轴 -->
+<div class = "scrolls">
+	<div class="scroll-wrapper scroll-wrapper-left">
+		<div class="scroll scroll-left"></div>
+	</div>
+	<div class="scroll-wrapper scroll-wrapper-right">
+		<div class="scroll scroll-right"></div>
+	</div>
+</div>
+<!-- 全局的提示 -->
+<div class="global-tip"><em>点击两侧,跳过动画</em></div>
+<!-- 鱼的 canvas -->
+<div class="fish">
+	<canvas id="canvas"></canvas>
+	<div class="background"></div>
+	<div class="lotus"></div>
+	<div class="bottom-background"></div>
+</div>
+<!-- 求职遮罩 -->
+<div id="cover">
+	<div class="background-cover" titile="点击阴影处,关闭">
+		<h2 class='title'>WEB 前端求职</h2>
+		<p>若我的水平能够胜任您公司的工作<br>
+		可否联系下</p>
+		<div>
+			<a href="mailto:qxguge@gmail.com">发送邮件</a>
+			<a href="" data-contact="qxguge@gmail.com" onclick="return false;" class="copy">复制邮箱</a>
+			<a href="" data-contact="王庆欣:18773822412" onclick="return false;" class="copy">复制手机号</a>
+		</div>
+	</div>
+</div>
+<!-- load 加载 -->
+	<div class="loading">
+	  <div class="loading-spinner"></div>
+	  	<div id="load">
+		  <div>L</div>
+		  <div>O</div>
+		  <div>A</div>
+		  <div>D</div>
+		  <div>I</div>
+		  <div>N</div>
+		  <div>G</div>
+		</div>
+	</div>
+<!-- copyBridge -->
+<textarea name="" id="copyBridge" cols="30" rows="10""></textarea>
+<script src="{% static 'resume/script.js' %}"></script>
+</body>
+</html>

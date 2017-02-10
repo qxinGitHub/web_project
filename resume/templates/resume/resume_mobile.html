@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <title>前端求职</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        h2{
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        p{
+            margin: 0;
+        }
+        a:link{
+            color: #666;
+        }
+        a:visited{
+            color: #666;
+        }
+        a:active{
+            color: #ccc;
+        }
+        a{
+            text-decoration: none;
+        }
+        .camera{
+            position: fixed;
+            top: 0;
+            left: 0;
+            /*background: #999;*/
+            /*position: fixed;
+            top: 0;
+            left: 0;*/
+            width: 100%;
+            height: 100%;
+
+            perspective-origin: center center;
+            -webkit-perspective-origin:center center;
+            perspective:5000px;
+            -webkit-perspective:5000px;
+            /*border:1px dashed red;*/
+        }
+        .space{
+            position: relative;
+            /*background: rgba(255,255,255,.8);*/
+            width: 100%;
+            height: 100%;
+            /*border:1px dashed #000;*/
+            transform-style:preserve-3d;
+            -webkit-transform-style:preserve-3d;
+            transform-origin:center center center;
+            -webkit-transform-origin:center center center;
+            /*transform:rotateX(5deg);*/
+            /*-webkit-transform:rotateX(5deg);*/
+
+            /*animation: a 4s linear infinite;*/
+            /*-webkit-animation: a 4s linear infinite;*/
+            transform:translateY(-100%);
+            transition: 1s cubic-bezier(.42,1.68,.74,.95);
+            /*box-shadow: 80px 0 10px 0px rgba(255,0,0,1) inset;*/
+        }
+
+        .box{
+            position: absolute;
+            /*font-size: 200px;*/
+            text-align: center;
+            user-select:none;
+            -moz-user-select:none;
+            -webkit-user-select:none;
+            padding: 10%;
+            box-sizing: border-box;
+        }
+        .box1{
+            /*background: rgba(255,0,0,1);*/
+            background: rgba(223,211,235,1);
+        }
+        .box2{
+            /*background:rgba(255,255,0,1);*/
+            background:rgba(221,240,237,1);
+            transform-origin:left top;
+            -webkit-transform-origin:left top;
+        }
+        .box3{
+            /*background:rgba(0,255,0,1);*/
+            background:rgba(195,190,212,1);
+            background:rgba(223,211,235,1);
+        }
+        .box4{
+            /*background:rgba(255,0,255,1);*/
+            background:rgba(221,240,237,1);
+            transform-origin:right top;
+            -webkit-transform-origin:right top;
+        }
+        .box5{
+            /*background:rgba(0,0,255,1);*/
+            background:rgba(238,232,171,1);
+            transform-origin:right top;
+            -webkit-transform-origin:right top;
+        }
+        .box6{
+            /*background:rgba(0,0,255,1);*/
+            background:rgba(238,232,171,1);
+            transform-origin:right top;
+            -webkit-transform-origin:right top;
+        }
+
+        @keyframes a{
+            0%{
+                transform: rotateY(359.9deg);
+            }
+            100%{
+                transform: rotateY(0);
+            }
+        }
+        @-webkit-keyframes a{
+            0%{
+                -webkit-transform: rotateY(359.9deg);
+            }
+            100%{
+                -webkit-transform: rotateY(0);
+            }
+        }
+
+        .wrap{
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            /*display: none;*/
+            /*background:rgba(255,255,255,.1);*/
+            opacity: 0;
+            visibility: hidden;
+            /*transition: 1s;*/
+            /*-webkit-transition: 1s;*/
+
+            transform-style:preserve-3d;
+            -webkit-transform-style:preserve-3d;
+            transform-origin:center center center;
+        }
+        .wrap > div{
+            position: relative;
+            width: 100%;
+            /*height: 100%;*/
+            /*transition: 1s;*/
+            /*-webkit-transition: 1s;*/
+        }
+        /* 开始内容*/
+        .box1{
+            /*position: absolute;*/
+            overflow: hidden;
+        }
+        .content{
+            font-size: 1rem;
+            position: absolute;
+            text-align:center;
+            -webkit-transform:translate(-25%);
+            transform:translate(-25%);
+            left:35%;
+            top:60%;
+            transition:.8s;
+            opacity:0;
+        }
+        .svg2 path{
+            stroke:black;
+            stroke-width:2;
+            fill:transparent;
+        }
+        .stroke-sketch-container{
+            position: absolute;
+            top: 15%;
+            left: 0;
+            /* webkit 只为兼容 uc*/
+            -webkit-transform: translate(28%);
+            transform: translate(38%);
+            overflow: hidden;
+            width: 100%;
+            transition:all 2s  linear;
+        }
+        .stroke-sketch-container svg{
+            /*transform:translate(38%,10%);*/
+        }
+        .full-sketch-container{
+            /*transform: translate(0,-250%);*/
+            /*-webkit-transform: translate(0,-250%);*/
+            /*transform: translate(0,0);*/
+            position: absolute;
+            /*bottom: 0;*/
+            top:80%;
+            left:36%;
+        }
+        /* 各个box上的内容*/
+        .box{
+            font-size: 0.5rem;
+            position: absolute;
+            /*text-align: center;*/
+        }
+        .box.active{
+            font-size:0.6rem;
+            transition: 1s;
+            /*text-align:left;*/
+        }
+        .box .box-item>div{
+            margin: 5% 0;
+        }
+        .active img{
+            width: 40%!important;
+            transition: 1s;
+            margin-bottom: 10%;
+        }
+        .wrap .box{
+            transition:1s;
+            -webkit-transition:1s;
+        }
+    </style>
+</head>
+<body>
+    <div class="camera">
+        <!-- <p>alpha(z): <span class="alpha"></span><br>
+           beta(x): <span class="beta"></span><br>
+           gamma(y): <span class="gamma"></span>
+        </p> -->
+        <div class="space">
+            <div class="box box1">
+                <div class="stroke-sketch-container">
+
+                    <svg class="svg2"version="1.1" id="图层_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100%" height="100%" viewBox="0,0,500,660"
+                      style="enable-background:new 0 0 245 331;" xml:space="preserve">
+
+                        <path class="stroke" id="XMLID_81_" d="M34.9,49.5V27.7H9v21.8H5.8V4.1H9v20.8h26V4.1H38v45.4H34.9z"/>
+                        <path class="stroke" id="XMLID_83_" d="M49.7,33.4c0,4.5,1,7.9,3.1,10.4c2.1,2.5,4.9,3.8,8.5,3.8c3.6,0,7.2-1.3,10.6-4v3.1
+                            c-3.4,2.4-7.1,3.6-11.2,3.6c-4.2,0-7.6-1.5-10.1-4.5c-2.6-3-3.9-7.2-3.9-12.7c0-4.7,1.3-8.7,4-12c2.7-3.2,6.2-4.9,10.5-4.9
+                            c4,0,7.1,1.4,9.3,4.2c2.2,2.8,3.2,6.7,3.2,11.6v1.3H49.7z M70.7,30.8c-0.1-3.8-1-6.7-2.7-8.7C66.3,20,64,19,61.1,19
+                            c-3,0-5.6,1-7.6,3c-2,2-3.2,5-3.7,8.8H70.7z"/>
+                        <path class="stroke" id="XMLID_86_" d="M81.8,49.5v-48h2.9v48H81.8z"/>
+                        <path class="stroke" id="XMLID_88_" d="M95.1,49.5v-48H98v48H95.1z"/>
+                        <path class="stroke" id="XMLID_90_" d="M121.4,50.3c-4.7,0-8.5-1.6-11.2-4.7c-2.8-3.1-4.1-7.2-4.1-12.1c0-5.4,1.4-9.6,4.3-12.6
+                            c2.9-3,6.7-4.6,11.4-4.6c4.6,0,8.3,1.5,10.9,4.5c2.7,3,4,7.2,4,12.5c0,5-1.4,9.1-4.1,12.2C129.9,48.7,126.1,50.3,121.4,50.3z
+                             M121.6,19c-3.8,0-6.9,1.3-9.1,3.9c-2.3,2.6-3.4,6.1-3.4,10.7c0,4.2,1.1,7.6,3.3,10.2c2.2,2.6,5.2,3.9,9.1,3.9c3.9,0,6.9-1.3,9-3.8
+                            c2.1-2.5,3.2-6,3.2-10.5c0-4.6-1.1-8.1-3.1-10.6C128.4,20.2,125.4,19,121.6,19z"/>
+                    </svg>
+                </div>
+                <div class="content">
+                    移动端简历
+                </div>
+                <!-- uc 百度中不会出现名字, 位置出现了偏移, 问题是不知道偏移到哪去了 -->
+                <div class="full-sketch-container">
+
+                    <svg class="svg2"version="1.1" id="图层_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100%" height="100%" viewBox="0,0,500 660"
+                      style="enable-background:new 0 0 245 331;" xml:space="preserve">
+
+                <!-- 王 -->
+                        <path id="XMLID_3_" class="st0" d="M5.9,23.5c1,1.3,1.5,3.1,2.8,3.9c1.5,0.6,2.8,1,4.9,0.7c7.5-3.8,7.1-18.1,17-18.1
+                            c0.1,0.3,0.3,0.4,0.4,0.7c0,17.9,0,35.9,0,53.7c-0.7,0-1.4,0-2.1,0c-4.2-4.2-13.1-3.1-13.1-11c-0.1-1,0.6-1.8,0.8-2.9
+                            c2.9-6.6,18.1-8.8,19.8-6.1c7.3,7.3-12.3,18-17.3,20.5"/>
+                        <path id="XMLID_4_" class="st0" d="M0,71.6c1.4,0-0.3,3.4,0.7,3.2c3.6-1,10.3-1,11.6-1.5c9.6-4.7,36.2-5.3,42.2-1.4
+                            c3.2,2,4.7,1.7,4.6,2.1c-0.4,0.3-1.7,1-2.1,1"/>
+                <!-- 庆 -->
+                        <path id="XMLID_5_" class="st0" d="M105.4,9.8c3.6-1.1,5.4-1.7,11.6-0.8c0.4,0.7,0.1,1.3,0,2.1c-0.3,0.4-0.4,0.7-0.7,1.1
+                            c-4.3,3.4-8.1,7-12.8,10.2"/>
+                        <path id="XMLID_6_" class="st0" d="M93.3,31.3c-0.4,0.7-0.4,1.4,0,1.8c2,0.7,4.7,1.3,6,0.3c4.9-4,10.2-7.3,15.4-10.5
+                            c-10.1,0-20.2,45.8-23.6,50.3c-1.8,1.8-5.6,2-6.4,0.7c-1.5-2-1.5-3.1-1.5-5.3"/>
+                        <path id="XMLID_7_" class="st0" d="M90.5,56.7c9.2,2.7,32.5-14.8,38.7-20.9c1.3-1.4,1.5-3.5,0.4-4.6c-3.1-1.5-7.5-1.7-10.9,0
+                            c-12.1,12.1,5.9,37.4-22.3,37.4"/>
+                        <path id="XMLID_8_" class="st0" d="M124.3,58.1c7.4,4.9,19.4,11.3,22.3,14.7c1.1,2.4-3.8,3.8-4.9,3.5"/>
+                <!-- 欣 -->
+                        <path id="XMLID_9_" class="st0" d="M175.6,26c0.4-1.4,1.4-2.2,2.5-3.2c2.5-0.8,5.2-2.2,7.3-0.7c0.7,0.4,1.3,1.1,1.8,2.1
+                            c0.3,0.7,0.7,1.8,0.4,3.2c-4.3,3.9-7,6-11.9,7.7"/>
+                        <path id="XMLID_10_" class="st0" d="M165.1,45.9c1.4,0.1,2.8,0.3,4.2,0.4c8.9,0,6.8,23,2.1,23c0-8.4,9.9-23.7,18.6-23.7
+                            c0,1,0,2.1,0,3.2c-4.2,8.4-3.2,24.2-3.2,24.2c1.3-5.4,2.5-10.9,3.9-16.5"/>
+                        <path id="XMLID_11_" class="st0" d="M204.1,18c0.8-2.5,1.7-5.2,2.5-7.7c0.4-0.1,0.7-0.3,1.1-0.4c0.6,0.1,1.1,0.3,1.8,0.4
+                            c0,12.7-10.2,27.8-10.2,30.4c7.4-5,14.9-11.9,22.3-15.1c2.1-1.3-5.4,16.8-10.5,16.8"/>
+                        <path id="XMLID_12_" class="st0" d="M206.9,49.4c1,0.3,2.1,0.4,3.2,0.7c0,9.8,4.7,26.5-12.3,26.5"/>
+                        <path id="XMLID_13_" class="st0" d="M221.9,67.1c12.1-2.1,16.9,19.5,25.5,19.5"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="box box2">
+                <!-- 简介 -->
+                <div class="box-item">
+                    <h2>About</h2>
+                    <p>半成品制作中</p>
+                    <!-- <p>最后更新日期</p> -->
+                    <!-- <p>2016年10月4日</p> -->
+                </div>
+            </div>
+            <div class="box box3">这里是背面,<br>你看不到我<br>看不到我<br>看不到我</div>
+            <!-- 技能经验 -->
+            <div class="box box4">
+            <div class="box-item">
+                <h2>技能</h2>
+                <div><p>目前已熟练 html(5),<br />css(3), js 三项基本技<br />能,尚不会使用库,框架等</p></div>
+                <h2>经验</h2>
+                <div>完成了简历的桌面和移动<br />端,后台使用django框架。</div>
+            </div>
+            </div>
+            <!-- 联系方式 -->
+            <div class="box box5">
+                <div class="box-item">
+                    <h2>联系我</h2>
+                    <!-- <div>电话:18773822412</div> -->
+                    <div>电话:<a href="tel:18773822412">18773822412</a></div>
+                    <div>主页:<a href="http://iqingxin.cn">iqingxin.cn</a></div>
+                    <!-- <div>邮箱:qxguge@gmail.com</div> -->
+                    <div>邮箱:<a href="mailto:qxguge@gmail.com">qxguge@gmail.com</a></div>
+                </div>
+            </div>
+            <!-- 个人介绍 -->
+            <div class="box box6">
+                <div class="box-item">
+                    <img src="C:\Users\xin\Desktop\简历\phone\000.jpg" alt="照片" style="width:30%;">
+                    <div>姓名:王庆欣</div>
+                    <div>籍贯:山东临沂</div>
+                    <div>专业:书法学（17应届）</div>
+                    <div>院校:湖南人文科技学院</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wrap"></div>
+    <script>
+        function $(ele){
+            return document.querySelector(ele);
+        }
+        function $$(ele){
+            return document.querySelectorAll(ele);
+        }
+
+     // 因为 uc 对 vw 的不友好,所以用 js 去设置各个 box 等的宽高
+        // 醉了 手机百度又不支持, 不会去兼容百度。
+        var camera = $(".camera");
+        var space = $(".space");
+        var box = $$(".box");
+        var box1 = $(".box1");
+        var box2 = $(".box2");
+        var box3 = $(".box3");
+        var box4 = $(".box4");
+        var box5 = $(".box5");
+        var box6 = $(".box6");
+        var wrap = $(".wrap");
+        // var winH = window.innerHeight;
+        var winH = document.documentElement.clientHeight;
+        var vh = winH/100;
+        // var winW = window.innerWidth;
+        var winW = document.documentElement.clientWidth;
+        var vw = winW/100;
+
+      // camera 样式
+        // 移动端 chrome qq 浏览器在陀螺仪转动时 camera 会出现变化,右边和下边有迷之拉伸。uc 无此特效。
+        // camera.style.width = winW + "px";
+        // camera.style.height = winH + "px";
+      // space 相关设置
+        space.style.webkitTransformOrigin = "center center "+ -winW*0.4+"px";
+        // space.style.width = winW * 0.8 + "px";
+        // space.style.height = winW * 0.8 + "px";
+        // space.style.marginLeft = winW * 0.1 + "px";
+        // space.style.marginTop = (winH - winW*0.8)/2 + "px";
+      // box 的宽高
+        for(var i=0;i<box.length;i++){
+            box[i].style.width = winW * 0.8 + "px";
+            box[i].style.height = winW * 0.8 + "px";
+        }
+    // todo:使用 swith 完成, 获得一次 box 即可, 不需要每个都获取一遍
+      // box1
+        box1.style.transform = "translate("+winW*0.1+"px,"+(winH - winW*0.8)/2+"px)";
+        box1.style.webkitTransform = "translate("+winW*0.1+"px,"+(winH - winW*0.8)/2+"px)";
+      // box2
+        box2.style.transform = "translate("+winW*0.9+"px,"+(winH - winW*0.8)/2+"px)";
+        box2.style.webkitTransform = "translate("+winW*0.9+"px,"+(winH - winW*0.8)/2+"px) rotateY(90deg)";
+      // box3
+        box3.style.transform =  "translate3d("+winW*0.1+"px,"+(winH - winW*0.8)/2+"px,"+-winW*0.8+"px) rotateY(180deg)";
+        box3.style.webkitTransform =  "translate3d("+winW*0.1+"px,"+(winH - winW*0.8)/2+"px,"+-winW*0.8+"px) rotateY(180deg)";
+      // box4
+        box4.style.transform = "translate("+-winW*0.7+"px,"+(winH - winW*0.8)/2+"px) rotateY(-90deg)";
+        box4.style.webkitTransform = "translate("+-winW*0.7+"px,"+(winH - winW*0.8)/2+"px) rotateY(-90deg)";
+      // box5
+        box5.style.transform = "translate3d("+winW*0.1+"px,"+(winH - winW*0.8)/2+"px,"+-winW*0.8+"px) rotateX(90deg)";
+        box5.style.webkitTransform = "translate3d("+winW*0.1+"px,"+(winH - winW*0.8)/2+"px,"+-winW*0.8+"px) rotateX(90deg)";
+        // box5 应该是把 box1 往上提 winW-(winH-winW*0.8)/2, 沿 bottom 旋转。 然而pc端chrome模拟会距离盒子一段距离, 在移动端 qq uc chrome 也是有一段距离。如果把除以2去掉,则在pc端chrome模拟上可以, box5 会完美的盖在上面,在移动端包括chrome(不解)中, 会掉入盒子中。
+            // 把它转变为 box1 的对面 box3 让其向上翻转(同一种情况:box1向上翻转,然后z轴向后移动)
+        // box5.style.webkitTransform = "translate("+winW*0.1+"px,"+-(winW-(winH - winW*0.8)/2)+"px) rotateX(90deg)";
+      // box6
+        box6.style.transform = "translate("+winW*0.1+"px,"+ ((winH - winW*0.8)/2+winW*0.8)+"px) rotateX(-90deg)";
+        box6.style.webkitTransform = "translate("+winW*0.1+"px,"+ ((winH - winW*0.8)/2+winW*0.8)+"px) rotateX(-90deg)";
+
+      // 陀螺仪
+        var a = document.querySelector(".alpha");
+        var b = document.querySelector(".beta");
+        var g = document.querySelector(".gamma");
+      // 初始正方体方位 让用户无论什么什么角度打开默认都是 box1 ,以此为基准进行旋转
+        // x轴（beta） y轴（gamma）
+        var x = null,
+            y = null;
+        if(window.DeviceOrientationEvent){
+            // console.log(event);
+            window.addEventListener("deviceorientation",function(event){
+                if(!x){
+                    x = -parseInt(event.beta);
+                    y = -parseInt(event.gamma);
+                    console.log(x,y)
+                }
+                var alpha = event.alpha,
+                    beta = parseInt(event.beta);
+                    // beta = event.beta*1.5;
+                    // beta = event.beta.toFixed(1)*1.5;
+                    gamma = parseInt(event.gamma);
+                    // gamma = event.gamma*1.5;
+                    // gamma = event.gamma.toFixed(1)*1.5;
+
+                // console.log(alpha,beta,gamma);
+                // a.innerHTML=alpha;
+                // b.innerHTML = beta;
+                // g.innerHTML = gamma;
+                // console.log(x+beta,y+gamma);
+                // if(beta>120)beta=120;
+                space.style.webkitTransform = "rotateX("+(x+beta)+"deg) rotateY("+(y+gamma)+"deg)";
+                // space.style.webkitTransform = "rotateX("+beta+"deg) rotateY("+y+"deg)";
+                // 转动中 camera 会出现错位,即使每次转动重新定义,依旧会有这个问题,下面的样式没有得到想要的结果。
+                    //将 camera 设为 f ixed 解决
+                // console.log(beta);
+                // if(beta%2==0){
+                //     console.log("空");
+                // camera.style.width = " ";
+                // camera.style.height = " ";
+                // }else{
+                //     console.log("100%");
+                // camera.style.width = "100%";
+                // camera.style.height = "100%";
+                // }
+            });
+        }else{
+            document.querySelector('body').innerHTML = '抱歉,你的浏览器不支持';
+        }
+
+
+      // 给 box 绑定点击事件
+       // qq浏览器在页面放大时,迷之抖动。
+       // uc浏览器 wrap 先闪一下,再进行放大动画
+        wrap.style.webkitTransformOrigin = "center center "+ -winW*0.4+"px";
+        for (var i=0; i<box.length; i++) {
+            box[i].onclick=(function(index){
+                return function(){
+                    console.log(index);
+                    var node = document.createElement("div");
+                    node = box[index].cloneNode(true);
+                    wrap.appendChild(node);
+                    wrap.style.visibility="visible";
+                    // 透明度如果设置为 小于的1的半透明,wrap位置错位,这俩的联系？或因为透明我眼睛问题？
+                    wrap.style.opacity = "1";
+                    wrap.style.transform = space.style.transform;
+
+                    var wrapBox = wrap.getElementsByClassName("box")[0];
+                    // 取消延迟后没有动画效果, 原因未知
+                    setTimeout(function(){
+                        // wrapBox.style.transition = "all 1s";
+                        wrap.style.transition = "all 1s";
+                        // 把透明度放在这 可以有透明度渐变的动画,但wrap出现的位置错位。
+                        // wrap.style.opacity = "1";
+
+                        wrapBox.style.transform="translate(0px,0px) rotate(0deg)";
+                        wrapBox.style.webkitTransform="translate(0px,0px) rotate(0deg)";
+                        wrapBox.style.width = "100%";
+                        wrapBox.style.height = "100%";
+                        wrap.style.transform="translate(0px,0px) rotate(0deg)"
+                        wrap.style.webkitTransform="translate(0px,0px) rotate(0deg)"
+                        // wrap.style.background ="rgba(255,255,255,.9)";
+
+                        // wrapBox.style.padding=(winH-winW)/2+"px "+winW/10+"px";
+                        wrapBox.style.padding = 20*vh+"px "+10*vw+"px";
+                        wrapBox.className +=" active";
+                    },50);
+                }
+            }(i))
+        }
+        wrap.onclick=function(){
+            var wrapBox = wrap.getElementsByClassName("box")[0];
+            wrapBox.style.transform = "translate(0px,0px) rotate(0deg) scale(2,2)";
+            wrapBox.style.webkitTransform = "translate(0px,0px) rotate(0deg) scale(2,2)";
+            wrap.style.transition = "1.2s";
+            wrap.style.opacity = "0";
+            wrap.style.visibility = "hidden";
+            //
+            var div = wrap.getElementsByTagName("div")[0];
+            setTimeout(function(){
+                // 移除之前先做判断,防止引发错误提示找不到子元素。
+                    // 然而并没有什么卵用
+                if( wrap.getElementsByTagName("div")[0])wrap.removeChild(div);
+                wrap.style.transition = "none";
+            },1000);
+        };
+
+        // html 文字大小
+            (function(){
+                var width = document.documentElement.clientWidth;
+                // if (width / dpr > 540) {
+                //     width = 540 * dpr;
+                // }
+                var rem = width / 10;//看到了吗 看到了吗 这句话 分成10份哦
+                // document.body.style.fontSize = rem + 'px';
+                document.documentElement.style.fontSize = rem + 'px';
+                // flexible.rem = win.rem = rem;
+            }());
+
+        // 开始动画
+// {#            window.addEventListener('load', function(){#}
+            var start = function(){
+
+                // 掉落动画 持续1秒
+                setTimeout(function(){
+                    space.style.transform="translate(0,0)";
+
+
+
+                },500);
+                var svgStroke = document.querySelector('.stroke-sketch-container svg');
+                svgStroke.parentNode.style.display = 'block';
+                svgStroke.style.visibility = 'hidden';
+                var svg = document.querySelector('.full-sketch-container svg');
+                // svg.parentNode.style.display = 'block';
+                svg.style.visibility = 'hidden';
+
+                // hello 描边
+                setTimeout(function(){
+                    fullSketch(svgStroke);
+                    // 关闭space动画
+                    // space.style.transition = " ";
+                },1500);
+                // title 渐现
+                setTimeout(function(){
+                    var content = $(".content");
+                    content.style.opacity="1";
+                    // content.style.transform="translate(0,250%)";
+                    // content.style.webkitTransform="translate(0,250%)";
+                    content.style.top = "40%";
+                },3300);
+                // 签名
+                setTimeout(function(){
+                    fullSketch(svg);
+                },4300);
+// {#            });#}
+            };
+
+            // 签名
+            function toArray(arr) {
+                return Array.prototype.slice.call(arr);
+            }
+            function fullSketch(svg) {
+              svg.style.visibility = '';
+              var paths = toArray(svg.querySelectorAll('path:not(.shade)'));
+              // console.log(paths.length);
+              // paths.push(svg.querySelector('.shade'));
+              var begin = 0;
+
+              // console.log(paths.length);
+              // console.log(durations);
+              var durations = paths.map(function(path) {
+                var length = path.getTotalLength();
+                // console.log(length);
+                var className = path.getAttribute('class') || '';
+
+                path.style.strokeDasharray = length + ' ' + length;
+                path.style.strokeDashoffset = length;
+
+                // no classList on svg elements in Safari :(
+                if (className.indexOf('stroke') != -1) {
+                  return 2;
+                }else {
+                  return Math.pow(length, 0.5) * 0.04;
+                }
+              });
+
+              // triggering a reflow so styles are calculated in their
+              // start position, so they animate from here
+              paths[0].getBoundingClientRect();
+
+              paths.forEach(function(path, i) {
+                // console.log(path);
+                var className = path.getAttribute('class') || '';
+                // console.log(className);
+                if(className.indexOf("stroke")===-1){
+                    path.style.transition = path.style.WebkitTransition = 'stroke-dashoffset ' + durations[i] + 's ' + begin + 's ease-in-out';
+                    begin += durations[i] + 0.1;
+                }else{
+                    path.style.transition = path.style.WebkitTransition = 'stroke-dashoffset ' + durations[i] + 's ease-in-out';
+                }
+                    path.style.strokeDashoffset = '0';
+              });
+            }
+
+                // 判断是否为 手机百度
+        // 手机百度无法旋转, 手机百度浏览器支持
+        var userAgent = window.navigator.userAgent;
+        if(~userAgent.indexOf("baiduboxapp")){
+            // alert(window.navigator.userAgent);
+            console.log(window.navigator.userAgent);
+            var xmlHttp = null;
+            xmlHttp = new XMLHttpRequest();
+            xmlHttp.open("GET","../demo/ajax_baidu",true);
+            xmlHttp.onreadystatechange=function(){
+                if(xmlHttp.readyState==4 && xmlHttp.status==200){
+                    $(".box1").innerHTML = xmlHttp.responseText;
+                    console.log(xmlHttp.responseText);
+                    start();
+                }
+            }
+            xmlHttp.send();
+        }else if(~userAgent.indexOf("UCBrowser") || ~userAgent.indexOf("baidubrowser")){
+            var content = $(".content");
+            var node = document.createElement("div");
+            if(~userAgent.indexOf("UCBrowser")){
+                node.innerHTML="<br/><p style='font-size:0.5rem;'>在uc浏览器上有些奇怪的问题需要我去解决</p>"
+            }else{
+                node.innerHTML="<br/><p style='font-size:0.5rem;'>在百度浏览器上有些奇怪的问题需要我去解决</p>"
+            }
+            content.appendChild(node);
+            start();
+        }else{
+            // alert(window.navigator.userAgent);
+            start();
+        }
+    </script>
+</body>
+</html>

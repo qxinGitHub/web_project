@@ -1,0 +1,558 @@
+{% load staticfiles %}
+/*-*-  满屏幕的 absolute 乱飞, z-index 从-1到1000  -*-*/
+
+
+/*- 卷轴 -*/
+body{
+	background-color: #E3DCD3;
+	margin: 0;
+	font-family: "Microsoft YaHei";
+	cursor: url(images/cur1.png),default;
+	/*cursor: wait;*/
+}
+.scrolls{
+	position: absolute;
+	z-index: 100;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+.scroll-wrapper{
+	position: absolute;
+	top: 0;
+	height: 100%;
+	width: 50%;
+	background-color: #fff;
+}
+.scroll-wrapper-left{
+	left: 0;
+}
+.scroll-wrapper-right{
+	right: 0;
+}
+.scroll{
+	position: absolute;
+	box-shadow: 0 0 10px #666;
+	width: 70px;
+	height: 100%;
+	background: -webkit-linear-gradient(left,#fff,#ccc 37%,#fff);
+}
+.scroll-left{
+	right: 0;
+}
+.global-tip{
+	opacity: 0;
+	height: 25px;
+	line-height: 25px;
+	letter-spacing: 1px;
+	font-size: .9em;
+	color: #fff;
+	padding: 5px 20px;
+	border-radius: 5px;
+	background-color: #666;
+	position: absolute;
+	z-index: 1001;
+	left: 50%;
+	bottom: 5%;
+	transform: translate(-50%);
+	transition: .4s;
+
+}
+
+/*- 鱼 -*/
+canvas{
+	position: absolute;
+	z-index: -10;
+	width: 100%;
+	height: 100%;
+}
+.fish{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+.background{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	/*width: 1000px;*/
+	/*height: 300px;*/
+	/*top: 0;*/
+	right: 0;
+	/*z-index: 1;*/
+	/*background: url(../图片素材/荷花/右上墨绿大.png) no-repeat;*/
+	/*background: url(../图片素材/荷花/背景图层合并.png) no-repeat;*/
+	background: url(images/背景1600像素.png) no-repeat;
+	/*background: url(../图片素材/荷花/背景加荷花.png) no-repeat;*/
+	background-size: 100% 100%;
+
+}
+.lotus{
+	position: absolute;
+	bottom: 0;
+	height: 60%;
+	width: 300px;
+	/*background: url(../图片素材/荷花/荷花.png) no-repeat;*/
+	background: url(images/荷花加透明度.png) no-repeat;
+}
+.bottom-background{
+	position: absolute;
+	height: 60px;
+	width: 100%;
+	bottom: 0;
+	background: url(images/下边框.png) repeat-x;
+}
+
+
+
+/*- 主体 -*/
+ul{
+	padding: 0;
+}
+li{
+	list-style: none;
+}
+h2{
+	font-weight: normal;
+	font-size: 12px;
+	margin: 0;
+}
+i,
+em{
+	font-style: normal;
+}
+a{
+	text-decoration: none;
+	color: #417151;
+	/*color: #000;*/
+}
+/*- 简历主体 -*/
+.main{
+	position: absolute;
+	z-index: 1;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	width: 800px;
+	/*height: 0;*/
+	overflow: hidden;
+	box-shadow: 0 0 10px 0px #ccc;
+	border-radius: 5px;
+	/*background-color: #F2F2EB;*/
+	/*opacity: .9;*/
+	background-color: rgba(242,242,235,.9);
+}
+/* 当高度不够时,防止translate依旧向上移动50% */
+@media screen and (max-height: 800px) {
+	.main{
+		top: 0;
+		transform: translate(-50%,0);
+	}
+}
+/*- 头部 -*/
+.header{
+	padding: 0 30px;
+	/*background-color: #F2F2EB;
+	opacity: .9;*/
+	/*background-color: rgba(242,242,235,.8);*/
+}
+header:hover{
+	background: #F2F2EB;
+}
+header .information{
+	float: left;
+	margin: 30px;
+}
+header li{
+	height: 40px;
+	line-height: 40px;
+	color: #666;
+	font-weight: bold;
+}
+header li span{
+	display: inline-block;
+	width: 230px;
+}
+/*- 图标 -*/
+header .icon{
+	position: relative;
+	text-decoration: none;
+	color: #666;
+	display: inline-block;
+	width: 100px;
+	height: 80px;
+	background: #0ff;
+	/*margin: 0 0 0  80px;*/
+	/*border: 10px solid transparent;*/
+	/*border-image: url(../图片素材/边框.png) 10 fill stretch;*/
+	transition: .4s;
+}
+.icons .icon:hover{
+	/*background: url(../图片素材/博客带边框.png) no-repeat center;*/
+	background-size: 100%;
+}
+.icons .blog{
+	margin-left: 50px;
+	background: url(images/博客带边框.png) no-repeat center;
+	/*background-size: 100%;*/
+	background-size: 90%;
+}
+.icons .mail{
+	margin-left: 130px;
+	background: url(images/邮箱带边框.png) no-repeat center;
+	/*background-size: 100%;*/
+	background-size: 90%;
+}
+/*- 线条 -*/
+.line{
+	position: absolute;
+	display: inline-block;
+	background: none;
+	transition: .4s;
+}
+.line-top{
+	top: 4px;
+	left:-100px;
+	width: 0;
+	height: 2px;
+}
+.icon:hover .line-top{
+	left: 1px;
+	width: 96px;
+	background: #000;
+}
+.line-right{
+	top: -80px;
+	right: 3px;
+	width: 2px;
+	height: 0px;
+}
+.icon:hover .line-right{
+	top: 3px;
+	height: 75px;
+	background: #000;
+}
+.line-bottom{
+	right: -100px;
+	bottom: 3px;
+	height: 2px;
+	width: 0px;
+}
+.icon:hover .line-bottom{
+	/*bottom: 3px;*/
+	/*height: 2px;*/
+	right: 2px;
+	width: 96px;
+	background: #000;
+}
+.line-left{
+	left: 1px;
+	bottom: -80px;
+	width: 2px;
+	height: 0px;
+	/*background: #000;*/
+}
+.icon:hover .line-left{
+	bottom: 2px;
+	height: 75px;
+	background: #000;
+}
+
+
+
+header .img{
+	float: right;
+	width: 180px;
+	height: 180px;
+	margin: 60px 30px 0 0;
+	background: url(images/马总.jpg) no-repeat center top;
+	background-size: 100%;
+	border-radius: 100px;
+
+}
+header .photo{
+	background: url(images/000.jpg) no-repeat center center;
+	width: 100%;
+	height: 100%;
+	background-size: 90% 80%;
+	transition: 1s;
+}
+header .img:hover .photo{
+	background-size:0% 0%;
+	transform: rotate(360deg);
+}
+/* 抵消父级的旋转*/
+header .img:hover .photo-background{
+	transform:rotate(-360deg);
+}
+.header .img .photo-background{
+	background: url(images/圈窄小背景.png) center center;
+	background-size: 100% ;
+	width: 180px;
+	height: 180px;
+	transition: 1.0s;
+}
+
+/*- 内容 -*/
+h2{
+	font-size: 1.6em;
+	display: inline-block;
+	font-family: "隶书";
+	letter-spacing: 1px;
+	color: #444;
+}
+.container{
+	padding: 100px 90px 100px 120px;
+	background/*-color: #F2F2EB;
+	opacity: .9;*/
+	/*background: url(../图片素材/左上.png) no-repeat top left,
+			    url(../图片素材/右下.png) no-repeat bottom right;*/
+}
+.container:before{
+	width: 191px;
+	height: 116px;
+	content: "";
+	position: absolute;
+	background: url(images/右下.png) no-repeat;
+	/*transform: rotate(180deg);*/
+	margin: -90px;
+}
+.container:after{
+	width: 256px;
+	height: 208px;
+	content: "";
+	position: absolute;
+	z-index: 1;
+	background: url(images/左上.png) no-repeat;
+	margin: -130px 0 0 400px;
+}
+.content:hover{
+	background-color: #F2F2EB;
+	/*margin: 100px;*/
+
+}
+/*- 技能 -*/
+.skills{
+	position: relative;
+}
+.skill{
+	display: inline-block;
+	margin-left: 9px;
+	width: 100px;
+	height: 100px;
+	transition: .2s;
+}
+.skills .html{
+	background: url(images/五合一距离修正.png) no-repeat ;
+	background-position:center 10px;
+	/*background: url(images/html小图.png) no-repeat center;*/
+	background-size: 80%;
+}
+.skills .css{
+	background: url(images/五合一距离修正.png) no-repeat ;
+	background-position: center -100px;
+	/*background: url(../图片素材/技能图标/css小图.png) no-repeat center;*/
+	background-size: 80%;
+}
+.skills .js{
+	background: url(images/五合一距离修正.png) no-repeat ;
+	background-position: center -430px;
+	/*background: url(../图片素材/技能图标/js小图.png) no-repeat center;*/
+	background-size: 80%;
+}
+.skills .jq{
+	background: url(images/五合一距离修正.png) no-repeat ;
+	background-position: center -320px;
+	/*background: url(../图片素材/技能图标/jq小图.png) no-repeat center;*/
+	background-size: 80%;
+}
+.skills .ps{
+	background: url(images/五合一距离修正.png) no-repeat ;
+	background-position: center -210px;
+	/*background: url(../图片素材/技能图标/ps小图.png) no-repeat center;*/
+	background-size: 80%;
+}
+.skill:hover{
+	/*background-size: 100%;*/
+	transform: translate(0,15px);
+}
+/*- 技能上的弹窗 -*/
+.tip{
+	position: absolute;
+	padding: 0 10px;
+	/*width: 30px;*/
+	/*max-width: 300px;*/
+	/*height: 30px;*/
+	line-height: 30px;
+	background: #666;
+	color: #fff;
+	font-size: 10px;
+	border-radius: 5px;
+	top: -10px;
+	opacity: 0;
+	/* jq动画代替
+		jq动画也不行,回归 css3 */
+		/*弹窗的字数控制在26个以内,动画就不会发生位移*/
+	transition: opacity .4s,top .4s;
+}
+/*- 弹窗上的三角形 -*/
+.tip span{
+	position: absolute;
+	width: 0;
+	height: 0;
+	border: 8px solid transparent;
+	border-top-color: #666;
+	top: 30px;
+	left: 50%;
+	margin-left: -8px;
+}
+/*- 项目经验 -*/
+ .exp p,
+ .work p{
+	margin-left: 30px;
+	margin-top: 10px;
+	letter-spacing: 1px;
+	font-size: 1.2em;
+	font-family: "Comic Sans MS","微软雅黑";
+	color: #555;
+}
+.hide{
+	font-size: 16px;
+	margin-left: 70px;
+	display: inline-block;
+	transition: 1s linear;
+	width: 0;
+	height: 20px;
+	overflow: hidden;
+	color: #555;
+}
+.exp:hover .hide{
+	width: 60%;
+}
+/*- 工作 -*/
+.exp,
+.work{
+	/* 前面用absolute加的背景图片,此处只为盖过它*/
+ 	position: relative;
+ 	z-index: 6;
+ 	width: 90%;
+	/*background-color: transparent;	*/
+}
+.work p{
+	margin-bottom: 0;
+}
+.work:hover .hide{
+	width: 100%;
+}
+
+
+
+
+
+/* -  求职遮罩  - */
+#cover{
+	text-align: left;
+	background-color: #E3DCD3;
+	/*background: url(图片素材/边框.png) no-repeat;*/
+	/*background-size: 97% 100%;*/
+	display: inline-block;
+	/*padding: 10px 30px;*/
+	padding: 6px;
+	border-radius: 5px;
+	text-align: center;
+	letter-spacing: 1px;
+	font-size: 1.1em;
+	color: #444;
+	/*display: none;*/
+}
+#cover .background-cover{
+	/*background-color: #E3DCD3;*/
+	background: url(images/边框.png) no-repeat;
+	background-size: 100% 100%;
+	padding: 15px 30px 30px;
+}
+/*#cover p{
+	font-size: 1.1em;
+}*/
+#cover a{
+	font-size: .90em;
+	color: #74896F;
+	font-weight: 400;
+	border: 2px solid #74896F;
+	border-radius: 3px;
+	padding:1px 3px;
+	/*margin: 4px;*/
+}
+#cover a:hover{
+	color: #E3DCD3;
+	background-color: #74896F;
+}
+
+
+
+/*#copyBridge{
+	position: absolute;
+	width: 0;
+	height: 0;
+	resize: none;
+}*/
+
+
+
+
+
+.mail-tip{
+			padding: 10px;
+
+
+			color: #333;
+			background: #E3DCD3;
+
+
+			position: absolute;
+			/*z-index: -1;*/
+			/*display: none;*/
+			opacity: 0;
+			transition: opacity .4s,margin .4s;
+			margin-top:10px;
+			margin-left: 230px;
+			border-radius: 5px;
+			line-height: 25px;
+		}
+.call-mail-tip:hover +.mail-tip{
+			z-index: 1;
+			opacity: 0.9;
+			margin-top: -5px;
+		}
+.red{
+	color:#C03976;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.clearfix:after{
+	content: "";
+	display: block;
+	clear: both;
+	height: 0;
+}

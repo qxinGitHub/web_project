@@ -1,0 +1,655 @@
+{% load staticfiles %}
+@charset "utf-8";
+/*-*-  满屏幕的 absolute 乱飞, z-index 从-1到1000  -*-*/
+
+
+/*- 卷轴 -*/
+body{
+    background-color: #E3DCD3;
+    margin: 0;
+    font-family: "Microsoft YaHei";
+    cursor: url(images/cur1.png),default;
+    /*cursor: wait;*/
+}
+.scrolls{
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.scroll-wrapper{
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    background-color: #fff;
+}
+.scroll-wrapper-left{
+    left: 0;
+}
+.scroll-wrapper-right{
+    right: 0;
+}
+.scroll{
+    position: absolute;
+    box-shadow: 0 0 10px #666;
+    width: 70px;
+    height: 100%;
+    background: -webkit-linear-gradient(left,#fff,#ccc 37%,#fff);
+    background: -moz-linear-gradient(left,#fff,#ccc 37%,#fff);
+    background: linear-gradient(to left,#fff,#ccc 37%,#fff);
+}
+.scroll-left{
+    right: 0;
+}
+.global-tip{
+    opacity: 0;
+    height: 25px;
+    line-height: 25px;
+    letter-spacing: 1px;
+    font-size: .9em;
+    color: #fff;
+    padding: 5px 20px;
+    border-radius: 5px;
+    background-color: #666;
+    position: absolute;
+    z-index: 1001;
+    left: 50%;
+    bottom: 5%;
+    transform: translate(-50%);
+    transition: .4s;
+}
+
+/*- 鱼 -*/
+canvas{
+    position: absolute;
+    z-index: -10;
+    width: 100%;
+    height: 100%;
+}
+.bg{
+    position: fixed;
+    /*position: absolute;*/
+    width: 100%;
+    height: 100%;
+}
+.background{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /*width: 1000px;*/
+    /*height: 300px;*/
+    /*top: 0;*/
+    right: 0;
+    /*z-index: 1;*/
+    /*background: url(../图片素材/荷花/右上墨绿大.png) no-repeat;*/
+    /*background: url(../图片素材/荷花/背景图层合并.png) no-repeat;*/
+    /*background: url(images/背景1000像素.png) no-repeat;*/
+    /*background: url(../图片素材/荷花/背景加荷花.png) no-repeat;*/
+    /*background-size: 100% 100%;*/
+
+}
+.lotus{
+    position: absolute;
+    bottom: 0;
+    height: 60%;
+    width: 300px;
+    /*background: url(../图片素材/荷花/荷花.png) no-repeat;*/
+    background: url(images/荷花加透明度.png) no-repeat;
+}
+.bottom-background{
+    position: absolute;
+    height: 60px;
+    width: 100%;
+    bottom: 0%;
+    background: url(images/底栏.png) repeat-x;
+}
+/* 水上的波纹 */
+.ripple {
+  height: 2px;
+  width: 2px;
+  border-radius: 100%;
+  position: absolute;
+  z-index: 0;
+  animation: sploosh 6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  background: transparent;
+  border:5px double rgba(141, 141, 141, 0.7);
+}
+@keyframes sploosh {
+  0% {
+    width: 2px;
+    height: 2px;
+    margin: 0;
+  }
+  100% {
+    width: 200px;
+    height: 200px;
+    margin: -100px 0 0 -100px;
+    border-width:1px;
+    border-color: rgba(41, 41, 41, 0);
+  }
+}
+
+
+
+/*- 主体 -*/
+ul{
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+h2{
+    font-weight: normal;
+    font-size: 12px;
+    margin: 0;
+}
+i,
+em{
+    font-style: normal;
+}
+a{
+    text-decoration: none;
+    color: #417151;
+    /*color: #000;*/
+}
+/*- 简历主体 -*/
+.main{
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top: 48%;
+    transform: translate(-50%,-50%);
+    width: 800px;
+    overflow: hidden;
+    box-shadow: 0 0 10px 0px #ccc;
+    border-radius: 5px;
+    background-color: rgba(242,242,235,.9);
+    -webkit-transition: background .2s;
+    -moz-transition: background .2s;
+    -ms-transition: background .2s;
+    -o-transition: background .2s;
+    transition: background .2s;
+}
+/* 当高度不够时,防止translate依旧向上移动50% */
+@media screen and (max-height: 800px) {
+    .main{
+        top: 0;
+        transform: translate(-50%,0);
+    }
+}
+/*- 头部 -*/
+.header{
+    padding: 0 30px;
+    -webkit-transition: background .3s;
+    -moz-transition: background .3s;
+    -ms-transition: background .3s;
+    -o-transition: background .3s;
+    transition: background .3s;
+}
+header:hover{
+    background-color: rgba(242,242,235,1);
+
+}
+header .information{
+    float: left;
+    margin: 30px;
+}
+header li{
+    height: 40px;
+    line-height: 40px;
+    color: #666;
+    font-weight: bold;
+}
+header li .left{
+    display: inline-block;
+    width: 230px;
+}
+.mail-show,
+.tel-show{
+    opacity: 0;
+    transition: .4s;
+}
+.email{
+    /* tel-show 前面多了 5 paddding,为对齐减去*/
+    margin-left:-5px;
+}
+.tel:hover .tel-show{
+    opacity:1;
+}
+header .copy{
+    font-size: 0.8em;
+    padding-left: 5px;
+}
+/*- 图标 -*/
+header .icon{
+    position: relative;
+    text-decoration: none;
+    color: #666;
+    display: inline-block;
+    width: 100px;
+    height: 80px;
+    background: #0ff;
+    transition: .4s;
+    margin-right:-5px;
+}
+.icons .icon:hover{
+    background-size: 100%;
+}
+.icons .blog{
+    margin-left: 50px;
+    background: url(images/博客带边框.png) no-repeat center;
+    background-size: 90%;
+}
+.icons .mail{
+    margin-left: 130px;
+    background: url(images/邮箱带边框.png) no-repeat center;
+    background-size: 90%;
+}
+/*- 线条 -*/
+.line{
+    position: absolute;
+    display: inline-block;
+    background: none;
+    transition: .4s;
+}
+.line-top{
+    top: 4px;
+    left:-100px;
+    width: 0;
+    height: 2px;
+}
+.icon:hover .line-top{
+    left: 1px;
+    width: 96px;
+    background: #000;
+}
+.line-right{
+    top: -80px;
+    right: 3px;
+    width: 2px;
+    height: 0px;
+}
+.icon:hover .line-right{
+    top: 3px;
+    height: 75px;
+    background: #000;
+}
+.line-bottom{
+    right: -100px;
+    bottom: 3px;
+    height: 2px;
+    width: 0px;
+}
+.icon:hover .line-bottom{
+    right: 2px;
+    width: 96px;
+    background: #000;
+}
+.line-left{
+    left: 1px;
+    bottom: -80px;
+    width: 2px;
+    height: 0px;
+}
+.icon:hover .line-left{
+    bottom: 2px;
+    height: 75px;
+    background: #000;
+}
+
+
+
+header .img{
+    float: right;
+    width: 180px;
+    height: 180px;
+    margin: 60px 30px 0 0;
+    background: url(images/马总.jpg) no-repeat center top;
+    background-size: 100%;
+    border-radius: 100px;
+    overflow: hidden;
+
+}
+header .photo{
+    background: url(images/000.jpg) no-repeat center center;
+    width: 100%;
+    height: 100%;
+    background-size: 90% 80%;
+    transition: 1s;
+    -webkit-transform-origin:10px center;
+    -moz-transform-origin:0 center;
+    -ms-transform-origin:0 center;
+    -o-transform-origin:0 center;
+    transform-origin:10px center;
+}
+header .img:hover .photo{
+    /*background-size:0% 0%;*/
+    transform: rotate(-120deg);
+}
+header .img .photo-background{
+    -webkit-transform-origin:10px center;
+    -moz-transform-origin:0 center;
+    -ms-transform-origin:0 center;
+    -o-transform-origin:0 center;
+    transform-origin:10px center;
+}
+    /* 抵消父级的旋转*/
+header .img:hover .photo-background{
+    transform:rotate(120deg);
+}
+.header .img .photo-background{
+    background: url(images/圈窄小背景.png) center center;
+    background-size: 100% ;
+    width: 180px;
+    height: 180px;
+    transition: 1.0s;
+}
+
+/*- 内容 -*/
+h2{
+    font-size: 1.6em;
+    display: inline-block;
+    font-family: "隶书";
+    letter-spacing: 1px;
+    color: #444;
+}
+.container{
+    padding: 100px 90px 100px 120px;
+    opacity: .9;
+
+}
+.container:before{
+    width: 191px;
+    height: 116px;
+    content: "";
+    position: absolute;
+    background: url(images/右下.png) no-repeat;
+    margin: -90px;
+}
+.container:after{
+    width: 256px;
+    height: 208px;
+    content: "";
+    position: absolute;
+    z-index: 1;
+    background: url(images/左上.png) no-repeat;
+    margin: -130px 0 0 400px;
+}
+.content{
+    -webkit-transition: background .3s;
+    -moz-transition: background .3s;
+    -ms-transition: background .3s;
+    -o-transition: background .3s;
+    transition: background .3s;
+}
+.content:hover{
+    background-color: rgba(242,242,235,1);
+
+}
+/*- 技能 -*/
+.skills{
+    position: relative;
+}
+.skill{
+    display: inline-block;
+    margin-left: 9px;
+    width: 100px;
+    height: 100px;
+    transition: .2s;
+}
+.skills .html{
+    background: url(images/html-css-js-dj-ps.png) no-repeat ;
+    background-position:center 10px;
+    background-size: 80%;
+}
+.skills .css{
+    background: url(images/html-css-js-dj-ps.png) no-repeat ;
+    background-position: center -100px;
+    background-size: 80%;
+}
+.skills .js{
+    background: url(images/html-css-js-dj-ps.png) no-repeat ;
+    background-position: center -430px;
+    background-size: 80%;
+}
+.skills .ps{
+    background: url(images/html-css-js-dj-ps.png) no-repeat ;
+    background-position: center -210px;
+    background-size: 80%;
+}
+.skills .dj{
+    background: url(images/html-css-js-dj-ps.png) no-repeat ;
+    background-position: center -320px;
+    background-size: 80%;
+}
+.skill:hover{
+    transform: translate(0,15px);
+}
+/*- 技能上的弹窗 -*/
+.tip{
+    position: absolute;
+    padding: 0 10px;
+    line-height: 30px;
+    background: #666;
+    color: #fff;
+    font-size: 10px;
+    border-radius: 5px;
+    top: -10px;
+    opacity: 0;
+    /* jq动画代替
+        jq动画也不行,回归 css3 */
+        /*弹窗的字数控制在26个以内,动画就不会发生位移*/
+    transition: opacity .4s,top .4s;
+}
+/*- 弹窗上的三角形 -*/
+.tip span{
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 8px solid transparent;
+    border-top-color: #666;
+    top: 30px;
+    left: 50%;
+    margin-left: -8px;
+}
+/*- 项目经验 -*/
+ .exp p,
+ .work p{
+    margin-left: 30px;
+    margin-top: 10px;
+    letter-spacing: 1px;
+    font-size: 1.2em;
+    font-family: "Comic Sans MS","微软雅黑";
+    color: #555;
+}
+.hide{
+    font-size: 16px;
+    margin-left: 70px;
+    display: inline-block;
+    transition: 1s linear;
+    width: 0;
+    height: 20px;
+    overflow: hidden;
+    color: #555;
+}
+.exp:hover .hide{
+    width: 80%;
+}
+.exp span:first-child{
+    display: inline-block;
+    overflow: hidden;
+    transition: 1s linear;
+    width:100px;
+}
+.exp:hover span:first-child{
+    width: 0;
+}
+/*- 工作 -*/
+.exp,
+.work{
+    /* 前面用absolute加的背景图片,此处定位只为盖过它*/
+    position: relative;
+    z-index: 6;
+    width: 90%;
+}
+.work p{
+    margin-bottom: 0;
+}
+.work:hover .hide{
+    width: 100%;
+}
+
+/* -  求职遮罩  - */
+#cover{
+    text-align: left;
+    background-color: #E3DCD3;
+    display: inline-block;
+    padding: 6px;
+    border-radius: 5px;
+    text-align: center;
+    letter-spacing: 1px;
+    font-size: 1.1em;
+    color: #444;
+}
+.cover-wrap{
+    cursor: url(images/cur_white.png),default;
+}
+#cover .background-cover{
+    background: url(images/边框.png) no-repeat;
+    background-size: 100% 100%;
+    padding: 15px 30px 30px;
+    cursor: url(images/cur.png),default;
+}
+#cover p{
+    margin-bottom:5px;
+}
+/*#cover a{*/
+    /*font-size: .90em;*/
+    /*background: #f0e9e0;*/
+    /*color: #74896F;*/
+    /*font-weight: 400;*/
+    /*border: 1px solid #74896F;*/
+    /*border-radius: 3px;*/
+    /*padding:1px 3px;*/
+/*}*/
+/*#cover a:hover{*/
+    /*color: #E3DCD3;*/
+    /*background-color: #74896F;*/
+/*}*/
+#cover .recommend{
+    margin-top:15px;
+    display: inline-block;
+}
+#cover a{
+    font-size:.9em;
+}
+#cover .btn-1{
+    cursor:pointer;
+    position: relative;
+    margin:0 .2em;
+    padding:1px .6em 0px;
+    text-align: center;
+    display: inline-block;
+}
+.btn-1 svg{
+    height:25px;
+    left:0;
+    position: absolute;
+    top:0;
+    width: 100%;
+}
+.btn-1 rect{
+    fill:none;
+    stroke:#74896F;
+    stroke-width: 4;
+    stroke-dasharray:223,0;
+    -webkit-transition:all 1.35s cubic-bezier(0.19,1,0.22,1);
+    transition: all 1.35s cubic-bezier(0.19,1,0.22,1);
+}
+
+.btn-1:hover rect{
+    stroke:#C03976;
+    stroke-width: 5;
+    stroke-dasharray: 82,141;
+    stroke-dashoffset: 108;
+}
+
+.mail-tip{
+    display: block;
+    padding: 10px;
+    color: #333;
+    background: #E3DCD3;
+    position: absolute;
+    opacity: 0;
+    transition: opacity .4s,margin .4s;
+    margin-top:15px;
+    margin-left: 230px;
+    border-radius: 5px;
+    line-height: 25px;
+}
+.email:hover .mail-show{
+    opacity:1;
+}
+.email:hover +.mail-tip{
+            z-index: 1;
+            opacity: 0.9;
+            margin-top: -5px;
+        }
+.red{
+    color:#C03976;
+}
+
+path{
+    stroke:green;
+    stroke-width:2;
+    fill:transparent;
+    stroke-dasharray: 1000 1000;
+    stroke-dashoffset: 1000;
+}
+.sign{
+    position: absolute;
+    top:0;
+    left:68%;
+    background: #F0F0E9;
+    /*-webkit-transition: all 1s ease .5s;*/
+    /*-moz-transition: all 1s ease .5s ;*/
+    /*-ms-transition: all 1s ease .5s ;*/
+    /*-o-transition: all 1s ease .5s ;*/
+    /*transition: all 1s ease .5s ;*/
+}
+.sign img{
+    position: absolute;
+    bottom: 0;
+    left: 40%;
+    width: 30%;
+    opacity: 0;
+    transition: opacity 2s;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.clearfix:after{
+    content: "";
+    display: block;
+    clear: both;
+    height: 0;
+}

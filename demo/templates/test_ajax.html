@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax</title>
+</head>
+<body>
+    <div id="div">这里什么都没有</div>
+    <input type="button" value="click" onclick="javascript:ajax();" id="but">
+    <script>
+        function ajax(){
+
+            var xmlhttp = null;
+            xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange=function(){
+                if(xmlhttp.readyState == 4 &&xmlhttp.status == 200){
+                    var div = document.getElementById("div");
+                    div.innerHTML = xmlhttp.responseText;
+                }
+            };
+            xmlhttp.open("GET","demo/ajax",true);
+            xmlhttp.send(null);
+{#            print("xmlhttp:%s"%xmlhttp);#}
+
+        }
+
+    </script>
+</body>
+</html>

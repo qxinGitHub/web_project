@@ -1,0 +1,1134 @@
+2016-09-04 19:35:44,284 [Thread-27:6544] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-09-07 23:13:08,846 [Thread-20:3824] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-09-08 08:42:12,757 [Thread-318:6844] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-09-10 10:12:51,721 [Thread-327:11488] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-09-10 11:17:59,542 [Thread-41:12248] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /adminblog/article/
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 174, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 172, in get_response
+    response = response.render()
+  File "G:\django_basic_venv\lib\site-packages\django\template\response.py", line 160, in render
+    self.content = self.rendered_content
+  File "G:\django_basic_venv\lib\site-packages\django\template\response.py", line 137, in rendered_content
+    content = template.render(context, self._request)
+  File "G:\django_basic_venv\lib\site-packages\django\template\backends\django.py", line 95, in render
+    return self.template.render(context)
+  File "G:\django_basic_venv\lib\site-packages\django\template\base.py", line 204, in render
+    with context.bind_template(self):
+  File "c:\python35\Lib\contextlib.py", line 59, in __enter__
+    return next(self.gen)
+  File "G:\django_basic_venv\lib\site-packages\django\template\context.py", line 260, in bind_template
+    updates.update(processor(self.request))
+  File "G:\website\blog_project\blog\views.py", line 37, in global_setting
+    archive_list = Article.objects.distinct_date()
+  File "G:\website\blog_project\blog\models.py", line 56, in distinct_date
+    date = date['date_publish'].strftime('%Y/%m文章存档')
+UnicodeEncodeError: 'locale' codec can't encode character '\u6587' in position 5: Illegal byte sequence
+2016-09-10 11:20:37,530 [Thread-42:10760] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /adminblog/article/
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 174, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 172, in get_response
+    response = response.render()
+  File "G:\django_basic_venv\lib\site-packages\django\template\response.py", line 160, in render
+    self.content = self.rendered_content
+  File "G:\django_basic_venv\lib\site-packages\django\template\response.py", line 137, in rendered_content
+    content = template.render(context, self._request)
+  File "G:\django_basic_venv\lib\site-packages\django\template\backends\django.py", line 95, in render
+    return self.template.render(context)
+  File "G:\django_basic_venv\lib\site-packages\django\template\base.py", line 204, in render
+    with context.bind_template(self):
+  File "c:\python35\Lib\contextlib.py", line 59, in __enter__
+    return next(self.gen)
+  File "G:\django_basic_venv\lib\site-packages\django\template\context.py", line 260, in bind_template
+    updates.update(processor(self.request))
+  File "G:\website\blog_project\blog\views.py", line 37, in global_setting
+    archive_list = Article.objects.distinct_date()
+  File "G:\website\blog_project\blog\models.py", line 56, in distinct_date
+    date = date['date_publish'].strftime(r'%Y/%m文章存档')
+UnicodeEncodeError: 'locale' codec can't encode character '\u6587' in position 5: Illegal byte sequence
+2016-09-10 12:10:05,706 [Thread-56:8900] [django.request:103] [csrf:_reject] [WARNING]- Forbidden (CSRF token missing or incorrect.): /admin/upload/kindeditor
+2016-09-10 12:15:35,620 [Thread-82:11900] [django.request:103] [csrf:_reject] [WARNING]- Forbidden (CSRF token missing or incorrect.): /admin/upload/kindeditor
+2016-09-10 12:19:58,328 [Thread-96:4624] [django.request:103] [csrf:_reject] [WARNING]- Forbidden (CSRF token missing or incorrect.): /admin/upload/kindeditor
+2016-09-10 15:46:34,893 [Thread-8:12992] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-09-10 15:51:52,194 [Thread-17:10236] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /a
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "G:\website\blog_project\blog\views.py", line 20, in a
+    return render(request,'blog/blog.html',locals())
+  File "G:\django_basic_venv\lib\site-packages\django\shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "G:\django_basic_venv\lib\site-packages\django\template\loader.py", line 96, in render_to_string
+    template = get_template(template_name, using=using)
+  File "G:\django_basic_venv\lib\site-packages\django\template\loader.py", line 32, in get_template
+    return engine.get_template(template_name, dirs)
+  File "G:\django_basic_venv\lib\site-packages\django\template\backends\django.py", line 40, in get_template
+    return Template(self.engine.get_template(template_name, dirs), self)
+  File "G:\django_basic_venv\lib\site-packages\django\template\engine.py", line 190, in get_template
+    template, origin = self.find_template(template_name, dirs)
+  File "G:\django_basic_venv\lib\site-packages\django\template\engine.py", line 157, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "G:\django_basic_venv\lib\site-packages\django\template\loaders\base.py", line 46, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "G:\django_basic_venv\lib\site-packages\django\template\base.py", line 189, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "G:\django_basic_venv\lib\site-packages\django\template\base.py", line 231, in compile_nodelist
+    return parser.parse()
+  File "G:\django_basic_venv\lib\site-packages\django\template\base.py", line 516, in parse
+    raise self.error(token, e)
+  File "G:\django_basic_venv\lib\site-packages\django\template\base.py", line 514, in parse
+    compiled_result = compile_func(self, token)
+  File "G:\django_basic_venv\lib\site-packages\django\template\defaulttags.py", line 886, in do_for
+    nodelist_loop = parser.parse(('empty', 'endfor',))
+  File "G:\django_basic_venv\lib\site-packages\django\template\base.py", line 516, in parse
+    raise self.error(token, e)
+  File "G:\django_basic_venv\lib\site-packages\django\template\base.py", line 514, in parse
+    compiled_result = compile_func(self, token)
+  File "G:\django_basic_venv\lib\site-packages\django\template\defaulttags.py", line 1035, in do_if
+    condition = TemplateIfParser(parser, bits).parse()
+  File "G:\django_basic_venv\lib\site-packages\django\template\smartif.py", line 197, in parse
+    retval = self.expression()
+  File "G:\django_basic_venv\lib\site-packages\django\template\smartif.py", line 207, in expression
+    left = t.nud(self)
+  File "G:\django_basic_venv\lib\site-packages\django\template\smartif.py", line 150, in nud
+    raise parser.error_class("Unexpected end of expression in if tag.")
+django.template.exceptions.TemplateSyntaxError: Unexpected end of expression in if tag.
+2016-09-10 15:53:12,307 [Thread-18:4468] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /a
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "G:\website\blog_project\blog\views.py", line 20, in a
+    return render(request,'blog/blog.html',locals())
+  File "G:\django_basic_venv\lib\site-packages\django\shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "G:\django_basic_venv\lib\site-packages\django\template\loader.py", line 96, in render_to_string
+    template = get_template(template_name, using=using)
+  File "G:\django_basic_venv\lib\site-packages\django\template\loader.py", line 32, in get_template
+    return engine.get_template(template_name, dirs)
+  File "G:\django_basic_venv\lib\site-packages\django\template\backends\django.py", line 40, in get_template
+    return Template(self.engine.get_template(template_name, dirs), self)
+  File "G:\django_basic_venv\lib\site-packages\django\template\engine.py", line 190, in get_template
+    template, origin = self.find_template(template_name, dirs)
+  File "G:\django_basic_venv\lib\site-packages\django\template\engine.py", line 157, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "G:\django_basic_venv\lib\site-packages\django\template\loaders\base.py", line 46, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "G:\django_basic_venv\lib\site-packages\django\template\base.py", line 189, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "G:\django_basic_venv\lib\site-packages\django\template\base.py", line 231, in compile_nodelist
+    return parser.parse()
+  File "G:\django_basic_venv\lib\site-packages\django\template\base.py", line 516, in parse
+    raise self.error(token, e)
+  File "G:\django_basic_venv\lib\site-packages\django\template\base.py", line 514, in parse
+    compiled_result = compile_func(self, token)
+  File "G:\django_basic_venv\lib\site-packages\django\template\defaulttags.py", line 886, in do_for
+    nodelist_loop = parser.parse(('empty', 'endfor',))
+  File "G:\django_basic_venv\lib\site-packages\django\template\base.py", line 516, in parse
+    raise self.error(token, e)
+  File "G:\django_basic_venv\lib\site-packages\django\template\base.py", line 514, in parse
+    compiled_result = compile_func(self, token)
+  File "G:\django_basic_venv\lib\site-packages\django\template\defaulttags.py", line 1035, in do_if
+    condition = TemplateIfParser(parser, bits).parse()
+  File "G:\django_basic_venv\lib\site-packages\django\template\smartif.py", line 197, in parse
+    retval = self.expression()
+  File "G:\django_basic_venv\lib\site-packages\django\template\smartif.py", line 207, in expression
+    left = t.nud(self)
+  File "G:\django_basic_venv\lib\site-packages\django\template\smartif.py", line 150, in nud
+    raise parser.error_class("Unexpected end of expression in if tag.")
+django.template.exceptions.TemplateSyntaxError: Unexpected end of expression in if tag.
+2016-09-10 15:53:38,142 [Thread-19:5380] [django.request:182] [base:get_response] [WARNING]- Not Found: /gen204
+2016-09-11 01:12:27,298 [Thread-12:14252] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /adminblog/article/
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\db\models\options.py", line 580, in get_field
+    return self.fields_map[field_name]
+KeyError: <function ArticleAdmin.date_publish at 0x000001F55C5E4D08>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\contrib\admin\utils.py", line 274, in lookup_field
+    f = _get_non_gfk_field(opts, name)
+  File "G:\django_basic_venv\lib\site-packages\django\contrib\admin\utils.py", line 308, in _get_non_gfk_field
+    field = opts.get_field(name)
+  File "G:\django_basic_venv\lib\site-packages\django\db\models\options.py", line 582, in get_field
+    raise FieldDoesNotExist('%s has no field named %r' % (self.object_name, field_name))
+django.core.exceptions.FieldDoesNotExist: Article has no field named <function ArticleAdmin.date_publish at 0x000001F55C5E4D08>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 174, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 172, in get_response
+    response = response.render()
+  File "G:\django_basic_venv\lib\site-packages\django\template\response.py", line 160, in render
+    self.content = self.rendered_content
+  File "G:\django_basic_venv\lib\site-packages\django\template\response.py", line 137, in rendered_content
+    content = template.render(context, self._request)
+  File "G:\django_basic_venv\lib\site-packages\django\template\backends\django.py", line 95, in render
+    return self.template.render(context)
+  File "G:\django_basic_venv\lib\site-packages\django\template\base.py", line 206, in render
+    return self._render(context)
+  File "G:\django_basic_venv\lib\site-packages\django\template\base.py", line 197, in _render
+    return self.nodelist.render(context)
+  File "G:\django_basic_venv\lib\site-packages\django\template\base.py", line 992, in render
+    bit = node.render_annotated(context)
+  File "G:\django_basic_venv\lib\site-packages\django\template\base.py", line 959, in render_annotated
+    return self.render(context)
+  File "G:\django_basic_venv\lib\site-packages\django\template\loader_tags.py", line 173, in render
+    return compiled_parent._render(context)
+  File "G:\django_basic_venv\lib\site-packages\django\template\base.py", line 197, in _render
+    return self.nodelist.render(context)
+  File "G:\django_basic_venv\lib\site-packages\django\template\base.py", line 992, in render
+    bit = node.render_annotated(context)
+  File "G:\django_basic_venv\lib\site-packages\django\template\base.py", line 959, in render_annotated
+    return self.render(context)
+  File "G:\django_basic_venv\lib\site-packages\django\template\loader_tags.py", line 173, in render
+    return compiled_parent._render(context)
+  File "G:\django_basic_venv\lib\site-packages\django\template\base.py", line 197, in _render
+    return self.nodelist.render(context)
+  File "G:\django_basic_venv\lib\site-packages\django\template\base.py", line 992, in render
+    bit = node.render_annotated(context)
+  File "G:\django_basic_venv\lib\site-packages\django\template\base.py", line 959, in render_annotated
+    return self.render(context)
+  File "G:\django_basic_venv\lib\site-packages\django\template\loader_tags.py", line 69, in render
+    result = block.nodelist.render(context)
+  File "G:\django_basic_venv\lib\site-packages\django\template\base.py", line 992, in render
+    bit = node.render_annotated(context)
+  File "G:\django_basic_venv\lib\site-packages\django\template\base.py", line 959, in render_annotated
+    return self.render(context)
+  File "G:\django_basic_venv\lib\site-packages\django\template\loader_tags.py", line 69, in render
+    result = block.nodelist.render(context)
+  File "G:\django_basic_venv\lib\site-packages\django\template\base.py", line 992, in render
+    bit = node.render_annotated(context)
+  File "G:\django_basic_venv\lib\site-packages\django\template\base.py", line 959, in render_annotated
+    return self.render(context)
+  File "G:\django_basic_venv\lib\site-packages\django\template\library.py", line 223, in render
+    _dict = self.func(*resolved_args, **resolved_kwargs)
+  File "G:\django_basic_venv\lib\site-packages\django\contrib\admin\templatetags\admin_list.py", line 326, in result_list
+    'results': list(results(cl))}
+  File "G:\django_basic_venv\lib\site-packages\django\contrib\admin\templatetags\admin_list.py", line 299, in results
+    yield ResultList(form, items_for_result(cl, res, form))
+  File "G:\django_basic_venv\lib\site-packages\django\contrib\admin\templatetags\admin_list.py", line 293, in __init__
+    super(ResultList, self).__init__(*items)
+  File "G:\django_basic_venv\lib\site-packages\django\contrib\admin\templatetags\admin_list.py", line 202, in items_for_result
+    f, attr, value = lookup_field(field_name, result, cl.model_admin)
+  File "G:\django_basic_venv\lib\site-packages\django\contrib\admin\utils.py", line 280, in lookup_field
+    value = attr(obj)
+TypeError: date_publish() missing 1 required positional argument: 'obj'
+2016-09-11 01:13:38,648 [Thread-13:4704] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /adminblog/article/
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\db\models\options.py", line 580, in get_field
+    return self.fields_map[field_name]
+KeyError: <function ArticleAdmin.date_publish at 0x000001F55C5E4D08>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\contrib\admin\utils.py", line 274, in lookup_field
+    f = _get_non_gfk_field(opts, name)
+  File "G:\django_basic_venv\lib\site-packages\django\contrib\admin\utils.py", line 308, in _get_non_gfk_field
+    field = opts.get_field(name)
+  File "G:\django_basic_venv\lib\site-packages\django\db\models\options.py", line 582, in get_field
+    raise FieldDoesNotExist('%s has no field named %r' % (self.object_name, field_name))
+django.core.exceptions.FieldDoesNotExist: Article has no field named <function ArticleAdmin.date_publish at 0x000001F55C5E4D08>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 174, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 172, in get_response
+    response = response.render()
+  File "G:\django_basic_venv\lib\site-packages\django\template\response.py", line 160, in render
+    self.content = self.rendered_content
+  File "G:\django_basic_venv\lib\site-packages\django\template\response.py", line 137, in rendered_content
+    content = template.render(context, self._request)
+  File "G:\django_basic_venv\lib\site-packages\django\template\backends\django.py", line 95, in render
+    return self.template.render(context)
+  File "G:\django_basic_venv\lib\site-packages\django\template\base.py", line 206, in render
+    return self._render(context)
+  File "G:\django_basic_venv\lib\site-packages\django\template\base.py", line 197, in _render
+    return self.nodelist.render(context)
+  File "G:\django_basic_venv\lib\site-packages\django\template\base.py", line 992, in render
+    bit = node.render_annotated(context)
+  File "G:\django_basic_venv\lib\site-packages\django\template\base.py", line 959, in render_annotated
+    return self.render(context)
+  File "G:\django_basic_venv\lib\site-packages\django\template\loader_tags.py", line 173, in render
+    return compiled_parent._render(context)
+  File "G:\django_basic_venv\lib\site-packages\django\template\base.py", line 197, in _render
+    return self.nodelist.render(context)
+  File "G:\django_basic_venv\lib\site-packages\django\template\base.py", line 992, in render
+    bit = node.render_annotated(context)
+  File "G:\django_basic_venv\lib\site-packages\django\template\base.py", line 959, in render_annotated
+    return self.render(context)
+  File "G:\django_basic_venv\lib\site-packages\django\template\loader_tags.py", line 173, in render
+    return compiled_parent._render(context)
+  File "G:\django_basic_venv\lib\site-packages\django\template\base.py", line 197, in _render
+    return self.nodelist.render(context)
+  File "G:\django_basic_venv\lib\site-packages\django\template\base.py", line 992, in render
+    bit = node.render_annotated(context)
+  File "G:\django_basic_venv\lib\site-packages\django\template\base.py", line 959, in render_annotated
+    return self.render(context)
+  File "G:\django_basic_venv\lib\site-packages\django\template\loader_tags.py", line 69, in render
+    result = block.nodelist.render(context)
+  File "G:\django_basic_venv\lib\site-packages\django\template\base.py", line 992, in render
+    bit = node.render_annotated(context)
+  File "G:\django_basic_venv\lib\site-packages\django\template\base.py", line 959, in render_annotated
+    return self.render(context)
+  File "G:\django_basic_venv\lib\site-packages\django\template\loader_tags.py", line 69, in render
+    result = block.nodelist.render(context)
+  File "G:\django_basic_venv\lib\site-packages\django\template\base.py", line 992, in render
+    bit = node.render_annotated(context)
+  File "G:\django_basic_venv\lib\site-packages\django\template\base.py", line 959, in render_annotated
+    return self.render(context)
+  File "G:\django_basic_venv\lib\site-packages\django\template\library.py", line 223, in render
+    _dict = self.func(*resolved_args, **resolved_kwargs)
+  File "G:\django_basic_venv\lib\site-packages\django\contrib\admin\templatetags\admin_list.py", line 326, in result_list
+    'results': list(results(cl))}
+  File "G:\django_basic_venv\lib\site-packages\django\contrib\admin\templatetags\admin_list.py", line 299, in results
+    yield ResultList(form, items_for_result(cl, res, form))
+  File "G:\django_basic_venv\lib\site-packages\django\contrib\admin\templatetags\admin_list.py", line 293, in __init__
+    super(ResultList, self).__init__(*items)
+  File "G:\django_basic_venv\lib\site-packages\django\contrib\admin\templatetags\admin_list.py", line 202, in items_for_result
+    f, attr, value = lookup_field(field_name, result, cl.model_admin)
+  File "G:\django_basic_venv\lib\site-packages\django\contrib\admin\utils.py", line 280, in lookup_field
+    value = attr(obj)
+TypeError: date_publish() missing 1 required positional argument: 'obj'
+2016-09-11 10:40:19,846 [Thread-29:956] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-09-15 00:04:40,623 [Thread-30:9932] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-09-15 08:19:57,326 [Thread-3:12804] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-09-15 10:49:49,436 [Thread-53:7648] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-09-16 12:32:00,650 [Thread-30:8496] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-09-18 16:43:17,720 [Thread-2:4572] [django.request:182] [base:get_response] [WARNING]- Not Found: /demo/00
+2016-09-18 16:43:20,050 [Thread-3:11136] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-09-18 16:43:40,465 [Thread-4:9724] [django.request:182] [base:get_response] [WARNING]- Not Found: /demo/00/
+2016-09-18 16:44:27,328 [Thread-5:11844] [django.request:182] [base:get_response] [WARNING]- Not Found: /demo/00/
+2016-09-18 16:44:34,899 [Thread-2:8600] [django.request:182] [base:get_response] [WARNING]- Not Found: /demo/00/
+2016-09-18 16:45:10,702 [Thread-2:9816] [django.request:182] [base:get_response] [WARNING]- Not Found: /demo/00/
+2016-09-18 16:45:49,422 [Thread-2:8936] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /demo/00/
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\core\urlresolvers.py", line 115, in get_callable
+    mod = import_module(mod_name)
+  File "G:\django_basic_venv\lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 986, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 969, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 956, in _find_and_load_unlocked
+ImportError: No module named 'demo.view'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "G:\django_basic_venv\lib\site-packages\django\core\urlresolvers.py", line 376, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "G:\django_basic_venv\lib\site-packages\django\core\urlresolvers.py", line 248, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "G:\django_basic_venv\lib\site-packages\django\core\urlresolvers.py", line 255, in callback
+    self._callback = get_callable(self._callback_str)
+  File "G:\django_basic_venv\lib\site-packages\django\core\urlresolvers.py", line 124, in get_callable
+    (lookup_view, mod_name))
+django.core.exceptions.ViewDoesNotExist: Could not import 'demo.view.demo'. Parent module demo.view does not exist.
+2016-09-18 16:51:16,349 [Thread-2:8600] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /demo/00/
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\core\urlresolvers.py", line 115, in get_callable
+    mod = import_module(mod_name)
+  File "G:\django_basic_venv\lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 986, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 969, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 956, in _find_and_load_unlocked
+ImportError: No module named 'demo.view'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "G:\django_basic_venv\lib\site-packages\django\core\urlresolvers.py", line 376, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "G:\django_basic_venv\lib\site-packages\django\core\urlresolvers.py", line 248, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "G:\django_basic_venv\lib\site-packages\django\core\urlresolvers.py", line 255, in callback
+    self._callback = get_callable(self._callback_str)
+  File "G:\django_basic_venv\lib\site-packages\django\core\urlresolvers.py", line 124, in get_callable
+    (lookup_view, mod_name))
+django.core.exceptions.ViewDoesNotExist: Could not import 'demo.view.demo'. Parent module demo.view does not exist.
+2016-09-18 16:52:59,492 [Thread-2:8640] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /demo/00/
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "G:\website\blog_project\demo\views.py", line 6, in demo
+    return render(request, name, locals())
+  File "G:\django_basic_venv\lib\site-packages\django\shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "G:\django_basic_venv\lib\site-packages\django\template\loader.py", line 96, in render_to_string
+    template = get_template(template_name, using=using)
+  File "G:\django_basic_venv\lib\site-packages\django\template\loader.py", line 43, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: 00
+2016-09-21 13:41:52,814 [Thread-244:12280] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-09-21 18:28:05,505 [Thread-3:9456] [django.request:182] [base:get_response] [WARNING]- Not Found: /script.js
+2016-09-21 18:52:12,426 [Thread-2:6984] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /about
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\core\urlresolvers.py", line 129, in get_callable
+    view_func = getattr(mod, func_name)
+AttributeError: module 'blog.views' has no attribute 'about'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "G:\website\blog_project\blog\views.py", line 20, in a
+    return render(request,'blog/blog.html',locals())
+  File "G:\django_basic_venv\lib\site-packages\django\shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "G:\django_basic_venv\lib\site-packages\django\template\loader.py", line 97, in render_to_string
+    return template.render(context, request)
+  File "G:\django_basic_venv\lib\site-packages\django\template\backends\django.py", line 95, in render
+    return self.template.render(context)
+  File "G:\django_basic_venv\lib\site-packages\django\template\base.py", line 206, in render
+    return self._render(context)
+  File "G:\django_basic_venv\lib\site-packages\django\template\base.py", line 197, in _render
+    return self.nodelist.render(context)
+  File "G:\django_basic_venv\lib\site-packages\django\template\base.py", line 992, in render
+    bit = node.render_annotated(context)
+  File "G:\django_basic_venv\lib\site-packages\django\template\base.py", line 959, in render_annotated
+    return self.render(context)
+  File "G:\django_basic_venv\lib\site-packages\django\template\defaulttags.py", line 220, in render
+    nodelist.append(node.render_annotated(context))
+  File "G:\django_basic_venv\lib\site-packages\django\template\base.py", line 959, in render_annotated
+    return self.render(context)
+  File "G:\django_basic_venv\lib\site-packages\django\template\defaulttags.py", line 499, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "G:\django_basic_venv\lib\site-packages\django\core\urlresolvers.py", line 600, in reverse
+    return force_text(iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs)))
+  File "G:\django_basic_venv\lib\site-packages\django\core\urlresolvers.py", line 448, in _reverse_with_prefix
+    self._populate()
+  File "G:\django_basic_venv\lib\site-packages\django\core\urlresolvers.py", line 334, in _populate
+    lookups.appendlist(pattern.callback, (bits, p_pattern, pattern.default_args))
+  File "G:\django_basic_venv\lib\site-packages\django\core\urlresolvers.py", line 255, in callback
+    self._callback = get_callable(self._callback_str)
+  File "G:\django_basic_venv\lib\site-packages\django\core\urlresolvers.py", line 136, in get_callable
+    (lookup_view, mod_name))
+django.core.exceptions.ViewDoesNotExist: Could not import 'blog.views.about'. View does not exist in module blog.views.
+2016-09-21 18:54:47,746 [Thread-11:7508] [django.request:182] [base:get_response] [WARNING]- Not Found: /blog/about
+2016-09-21 19:05:31,584 [Thread-2:7156] [django.request:182] [base:get_response] [WARNING]- Not Found: /
+2016-09-21 19:06:13,332 [Thread-3:7684] [django.request:182] [base:get_response] [WARNING]- Not Found: /
+2016-09-22 12:44:31,667 [Thread-152:3488] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur1.png
+2016-09-22 12:44:31,711 [Thread-154:6344] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur.png
+2016-09-22 18:50:20,079 [Thread-1473:5028] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-09-29 09:26:48,237 [Thread-29:10880] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur1.png
+2016-09-29 09:26:48,272 [Thread-31:10748] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur.png
+2016-09-29 09:27:09,836 [Thread-51:1804] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur1.png
+2016-09-29 09:27:09,890 [Thread-53:6108] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur.png
+2016-10-05 08:59:41,647 [Thread-28:8364] [django.request:182] [base:get_response] [WARNING]- Not Found: /script.js
+2016-10-05 08:59:43,715 [Thread-31:472] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-10-05 09:05:24,484 [Thread-2:2968] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /test
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "G:\website\blog_project\demo\views.py", line 16, in test
+    values.sort()
+AttributeError: 'dict_items' object has no attribute 'sort'
+2016-10-05 09:09:53,485 [Thread-6:9692] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-10-05 09:19:06,806 [Thread-5:8628] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-10-05 09:20:04,052 [Thread-2:5028] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /test_phone
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "G:\website\blog_project\demo\views.py", line 24, in test_phone
+    if(request.META["http_USER_AGENT"].lower().find("mobile")>0):
+KeyError: 'http_USER_AGENT'
+2016-10-05 09:24:11,165 [Thread-2:6388] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /test_phone
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "G:\website\blog_project\demo\views.py", line 27, in test_phone
+    return HttpResponse("手机 %s" %request.META.HTTP_USER_AGENT)
+AttributeError: 'dict' object has no attribute 'HTTP_USER_AGENT'
+2016-10-05 09:24:46,768 [Thread-3:8212] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /test_phone
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "G:\website\blog_project\demo\views.py", line 27, in test_phone
+    return HttpResponse("手机 %s" %request["HTTP_USER_AGENT"])
+AttributeError: 'dict' object has no attribute 'HTTP_USER_AGENT'
+2016-10-05 09:24:52,973 [Thread-2:6304] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /test_phone
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "G:\website\blog_project\demo\views.py", line 27, in test_phone
+    return HttpResponse("手机 %s" %request["HTTP_USER_AGENT"])
+TypeError: 'WSGIRequest' object is not subscriptable
+2016-10-05 09:25:46,320 [Thread-2:8100] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /test_phone
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "G:\website\blog_project\demo\views.py", line 27, in test_phone
+    return HttpResponse("手机 %s" % request["HTTP_USER_AGENT"])
+TypeError: 'WSGIRequest' object is not subscriptable
+2016-10-05 09:25:50,365 [Thread-3:4220] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /test_phone
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "G:\website\blog_project\demo\views.py", line 27, in test_phone
+    return HttpResponse("手机 %s" % request["HTTP_USER_AGENT"])
+TypeError: 'WSGIRequest' object is not subscriptable
+2016-10-05 09:26:14,133 [Thread-4:2548] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /test_phone
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "G:\website\blog_project\demo\views.py", line 27, in test_phone
+    return HttpResponse("手机 %s" % request.META["HTTP_USER_AGENT"])
+TypeError: 'WSGIRequest' object is not subscriptable
+2016-10-05 09:46:28,525 [Thread-48:7976] [django.request:182] [base:get_response] [WARNING]- Not Found: /reusme_mobile
+2016-10-05 09:46:52,355 [Thread-49:788] [django.request:182] [base:get_response] [WARNING]- Not Found: /reusme_mobile/
+2016-10-05 09:50:36,936 [Thread-62:4396] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /resume_pc/
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\template\base.py", line 508, in parse
+    compile_func = self.tags[command]
+KeyError: "static'/resume/images/印章.png'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "G:\website\blog_project\resume\views.py", line 19, in resume_pc
+    return render(request,"resume/index.html")
+  File "G:\django_basic_venv\lib\site-packages\django\shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "G:\django_basic_venv\lib\site-packages\django\template\loader.py", line 96, in render_to_string
+    template = get_template(template_name, using=using)
+  File "G:\django_basic_venv\lib\site-packages\django\template\loader.py", line 32, in get_template
+    return engine.get_template(template_name, dirs)
+  File "G:\django_basic_venv\lib\site-packages\django\template\backends\django.py", line 40, in get_template
+    return Template(self.engine.get_template(template_name, dirs), self)
+  File "G:\django_basic_venv\lib\site-packages\django\template\engine.py", line 190, in get_template
+    template, origin = self.find_template(template_name, dirs)
+  File "G:\django_basic_venv\lib\site-packages\django\template\engine.py", line 157, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "G:\django_basic_venv\lib\site-packages\django\template\loaders\base.py", line 46, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "G:\django_basic_venv\lib\site-packages\django\template\base.py", line 189, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "G:\django_basic_venv\lib\site-packages\django\template\base.py", line 231, in compile_nodelist
+    return parser.parse()
+  File "G:\django_basic_venv\lib\site-packages\django\template\base.py", line 510, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "G:\django_basic_venv\lib\site-packages\django\template\base.py", line 572, in invalid_block_tag
+    "or load this tag?" % (token.lineno, command)
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 101: 'static'/resume/images/印章.png''. Did you forget to register or load this tag?
+2016-10-06 17:57:06,350 [Thread-2:10700] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /download/a
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "G:\website\blog_project\demo\views.py", line 32, in file_download
+    with open("name") as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'name'
+2016-10-06 17:57:07,840 [Thread-3:8496] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-10-06 17:57:53,061 [Thread-2:1280] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /download/1.jpg
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "G:\website\blog_project\demo\views.py", line 32, in file_download
+    with open(name) as f:
+FileNotFoundError: [Errno 2] No such file or directory: '1.jpg'
+2016-10-06 17:58:41,144 [Thread-2:10356] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /download/1.jpg
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "G:\website\blog_project\demo\views.py", line 33, in file_download
+    with open(name) as f:
+FileNotFoundError: [Errno 2] No such file or directory: '1.jpg'
+2016-10-06 17:59:09,789 [Thread-2:4424] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /download/1.jpg
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "G:\website\blog_project\demo\views.py", line 33, in file_download
+    with open("download/"+name) as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'download/1.jpg'
+2016-10-06 17:59:17,209 [Thread-3:3508] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /download/1.jpg
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "G:\website\blog_project\demo\views.py", line 33, in file_download
+    with open("download/"+name) as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'download/1.jpg'
+2016-10-06 17:59:21,353 [Thread-4:10776] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /download/1.jpg
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "G:\website\blog_project\demo\views.py", line 33, in file_download
+    with open("download/"+name) as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'download/1.jpg'
+2016-10-06 18:02:34,326 [Thread-5:9964] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /download/logo.png
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "G:\website\blog_project\demo\views.py", line 34, in file_download
+    c = f.read()
+UnicodeDecodeError: 'gbk' codec can't decode byte 0xbf in position 103: illegal multibyte sequence
+2016-10-06 18:04:40,658 [Thread-6:4740] [django.request:182] [base:get_response] [WARNING]- Not Found: /download
+2016-10-06 18:04:47,845 [Thread-7:5316] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /download/1.jpg
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "G:\website\blog_project\demo\views.py", line 34, in file_download
+    c = f.read()
+UnicodeDecodeError: 'gbk' codec can't decode byte 0xff in position 0: illegal multibyte sequence
+2016-10-06 18:07:00,426 [Thread-2:11136] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /download/1.jpg
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "G:\website\blog_project\demo\views.py", line 35, in file_download
+    c = f.read()
+UnicodeDecodeError: 'gbk' codec can't decode byte 0xff in position 0: illegal multibyte sequence
+2016-10-06 18:07:03,602 [Thread-3:10632] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /download/1.jpg
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "G:\website\blog_project\demo\views.py", line 35, in file_download
+    c = f.read()
+UnicodeDecodeError: 'gbk' codec can't decode byte 0xff in position 0: illegal multibyte sequence
+2016-10-06 18:07:40,722 [Thread-4:860] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /download/1.jpg
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "G:\website\blog_project\demo\views.py", line 35, in file_download
+    c = f.read()
+UnicodeDecodeError: 'gbk' codec can't decode byte 0xff in position 0: illegal multibyte sequence
+2016-10-06 18:09:19,369 [Thread-5:9252] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /download/1.jpg
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "G:\website\blog_project\demo\views.py", line 35, in file_download
+    c = f.read()
+UnicodeDecodeError: 'gbk' codec can't decode byte 0xff in position 0: illegal multibyte sequence
+2016-10-06 18:10:34,296 [Thread-2:11028] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /download/1.jpg
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "G:\website\blog_project\demo\views.py", line 35, in file_download
+    c = f.read()
+UnicodeDecodeError: 'gbk' codec can't decode byte 0xff in position 0: illegal multibyte sequence
+2016-10-06 18:10:50,977 [Thread-4:10084] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /download/1.jpg
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "G:\website\blog_project\demo\views.py", line 35, in file_download
+    #     c = f.read()
+UnicodeDecodeError: 'gbk' codec can't decode byte 0xff in position 0: illegal multibyte sequence
+2016-10-06 18:20:20,868 [Thread-2:9944] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /download/1.jpg
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "G:\website\blog_project\demo\views.py", line 40, in file_download
+    c = f.read()
+UnicodeDecodeError: 'gbk' codec can't decode byte 0xff in position 0: illegal multibyte sequence
+2016-10-06 18:22:32,915 [Thread-2:7828] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /download/1.jpg
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "G:\website\blog_project\demo\views.py", line 40, in file_download
+    c = f.read()
+  File "G:\django_basic_venv\lib\codecs.py", line 321, in decode
+    (result, consumed) = self._buffer_decode(data, self.errors, final)
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xff in position 0: invalid start byte
+2016-10-06 18:25:27,109 [Thread-2:5416] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /download/logo.png
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "G:\website\blog_project\demo\views.py", line 37, in file_download
+    f = open(name,encoding="acsi")
+LookupError: unknown encoding: acsi
+2016-10-06 18:25:53,151 [Thread-2:7740] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /download/logo.png
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "G:\website\blog_project\demo\views.py", line 40, in file_download
+    c = f.read()
+  File "G:\django_basic_venv\lib\codecs.py", line 321, in decode
+    (result, consumed) = self._buffer_decode(data, self.errors, final)
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0x89 in position 0: invalid start byte
+2016-10-06 18:26:04,739 [Thread-2:8624] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /download/logo.png
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "G:\website\blog_project\demo\views.py", line 40, in file_download
+    c = f.read()
+UnicodeDecodeError: 'gbk' codec can't decode byte 0xbf in position 103: illegal multibyte sequence
+2016-10-06 18:27:09,535 [Thread-3:6748] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /download/logo.png
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "G:\website\blog_project\demo\views.py", line 40, in file_download
+    c = f.read()
+UnicodeDecodeError: 'gbk' codec can't decode byte 0xbf in position 103: illegal multibyte sequence
+2016-10-06 18:27:49,844 [Thread-2:4112] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /download/logo.png
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "G:\website\blog_project\demo\views.py", line 40, in file_download
+    c = f.read()
+io.UnsupportedOperation: not readable
+2016-10-06 18:47:25,449 [Thread-2:6052] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /download/2.txt
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 123, in get_response
+    response = middleware_method(request)
+  File "G:\django_basic_venv\lib\site-packages\django\middleware\common.py", line 61, in process_request
+    if self.should_redirect_with_slash(request):
+  File "G:\django_basic_venv\lib\site-packages\django\middleware\common.py", line 79, in should_redirect_with_slash
+    not urlresolvers.is_valid_path(request.path_info, urlconf)
+  File "G:\django_basic_venv\lib\site-packages\django\core\urlresolvers.py", line 668, in is_valid_path
+    resolve(path, urlconf)
+  File "G:\django_basic_venv\lib\site-packages\django\core\urlresolvers.py", line 534, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "G:\django_basic_venv\lib\site-packages\django\core\urlresolvers.py", line 376, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "G:\django_basic_venv\lib\site-packages\django\core\urlresolvers.py", line 248, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "G:\django_basic_venv\lib\site-packages\django\core\urlresolvers.py", line 255, in callback
+    self._callback = get_callable(self._callback_str)
+  File "G:\django_basic_venv\lib\site-packages\django\core\urlresolvers.py", line 115, in get_callable
+    mod = import_module(mod_name)
+  File "G:\django_basic_venv\lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 986, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 969, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 958, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 673, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 658, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 764, in get_code
+  File "<frozen importlib._bootstrap_external>", line 724, in source_to_code
+  File "<frozen importlib._bootstrap>", line 222, in _call_with_frames_removed
+  File "G:\website\blog_project\demo\views.py", line 44
+    def readFile(fn, buf_size=262144):
+                                     ^
+TabError: inconsistent use of tabs and spaces in indentation
+2016-10-06 18:50:41,323 [Thread-3:5836] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /download/2.txt
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 123, in get_response
+    response = middleware_method(request)
+  File "G:\django_basic_venv\lib\site-packages\django\middleware\common.py", line 61, in process_request
+    if self.should_redirect_with_slash(request):
+  File "G:\django_basic_venv\lib\site-packages\django\middleware\common.py", line 79, in should_redirect_with_slash
+    not urlresolvers.is_valid_path(request.path_info, urlconf)
+  File "G:\django_basic_venv\lib\site-packages\django\core\urlresolvers.py", line 668, in is_valid_path
+    resolve(path, urlconf)
+  File "G:\django_basic_venv\lib\site-packages\django\core\urlresolvers.py", line 534, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "G:\django_basic_venv\lib\site-packages\django\core\urlresolvers.py", line 376, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "G:\django_basic_venv\lib\site-packages\django\core\urlresolvers.py", line 248, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "G:\django_basic_venv\lib\site-packages\django\core\urlresolvers.py", line 255, in callback
+    self._callback = get_callable(self._callback_str)
+  File "G:\django_basic_venv\lib\site-packages\django\core\urlresolvers.py", line 115, in get_callable
+    mod = import_module(mod_name)
+  File "G:\django_basic_venv\lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 986, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 969, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 958, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 673, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 658, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 764, in get_code
+  File "<frozen importlib._bootstrap_external>", line 724, in source_to_code
+  File "<frozen importlib._bootstrap>", line 222, in _call_with_frames_removed
+  File "G:\website\blog_project\demo\views.py", line 52
+    f.close()
+            ^
+TabError: inconsistent use of tabs and spaces in indentation
+2016-10-06 18:50:50,915 [Thread-2:10844] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /download/2.txt
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 123, in get_response
+    response = middleware_method(request)
+  File "G:\django_basic_venv\lib\site-packages\django\middleware\common.py", line 61, in process_request
+    if self.should_redirect_with_slash(request):
+  File "G:\django_basic_venv\lib\site-packages\django\middleware\common.py", line 79, in should_redirect_with_slash
+    not urlresolvers.is_valid_path(request.path_info, urlconf)
+  File "G:\django_basic_venv\lib\site-packages\django\core\urlresolvers.py", line 668, in is_valid_path
+    resolve(path, urlconf)
+  File "G:\django_basic_venv\lib\site-packages\django\core\urlresolvers.py", line 534, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "G:\django_basic_venv\lib\site-packages\django\core\urlresolvers.py", line 376, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "G:\django_basic_venv\lib\site-packages\django\core\urlresolvers.py", line 248, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "G:\django_basic_venv\lib\site-packages\django\core\urlresolvers.py", line 255, in callback
+    self._callback = get_callable(self._callback_str)
+  File "G:\django_basic_venv\lib\site-packages\django\core\urlresolvers.py", line 115, in get_callable
+    mod = import_module(mod_name)
+  File "G:\django_basic_venv\lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 986, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 969, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 958, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 673, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 658, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 764, in get_code
+  File "<frozen importlib._bootstrap_external>", line 724, in source_to_code
+  File "<frozen importlib._bootstrap>", line 222, in _call_with_frames_removed
+  File "G:\website\blog_project\demo\views.py", line 52
+    f.close()
+            ^
+TabError: inconsistent use of tabs and spaces in indentation
+2016-10-06 19:03:34,386 [Thread-9:6948] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-10-06 19:08:55,583 [Thread-8:3440] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /download/psd.psd
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "G:\website\blog_project\demo\views.py", line 46, in file_download
+    response = HttpResponse(readFile(name))
+  File "G:\django_basic_venv\lib\site-packages\django\http\response.py", line 285, in __init__
+    self.content = content
+  File "G:\django_basic_venv\lib\site-packages\django\http\response.py", line 313, in content
+    value = b''.join(self.make_bytes(chunk) for chunk in value)
+  File "G:\django_basic_venv\lib\site-packages\django\http\response.py", line 313, in <genexpr>
+    value = b''.join(self.make_bytes(chunk) for chunk in value)
+  File "G:\website\blog_project\demo\views.py", line 38, in readFile
+    c = f.read(chunk_size)
+UnicodeDecodeError: 'gbk' codec can't decode byte 0x95 in position 17: illegal multibyte sequence
+2016-10-06 19:09:38,589 [Thread-2:4128] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /download/psd.psd
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "G:\website\blog_project\demo\views.py", line 46, in file_download
+    response = HttpResponse(readFile(name))
+  File "G:\django_basic_venv\lib\site-packages\django\http\response.py", line 285, in __init__
+    self.content = content
+  File "G:\django_basic_venv\lib\site-packages\django\http\response.py", line 313, in content
+    value = b''.join(self.make_bytes(chunk) for chunk in value)
+  File "G:\django_basic_venv\lib\site-packages\django\http\response.py", line 313, in <genexpr>
+    value = b''.join(self.make_bytes(chunk) for chunk in value)
+  File "G:\website\blog_project\demo\views.py", line 38, in readFile
+    c = f.read()
+UnicodeDecodeError: 'gbk' codec can't decode byte 0x95 in position 17: illegal multibyte sequence
+2016-10-06 19:09:42,600 [Thread-3:10020] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /download/psd.psd
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "G:\website\blog_project\demo\views.py", line 46, in file_download
+    response = HttpResponse(readFile(name))
+  File "G:\django_basic_venv\lib\site-packages\django\http\response.py", line 285, in __init__
+    self.content = content
+  File "G:\django_basic_venv\lib\site-packages\django\http\response.py", line 313, in content
+    value = b''.join(self.make_bytes(chunk) for chunk in value)
+  File "G:\django_basic_venv\lib\site-packages\django\http\response.py", line 313, in <genexpr>
+    value = b''.join(self.make_bytes(chunk) for chunk in value)
+  File "G:\website\blog_project\demo\views.py", line 38, in readFile
+    c = f.read()
+UnicodeDecodeError: 'gbk' codec can't decode byte 0x95 in position 17: illegal multibyte sequence
+2016-10-06 19:19:27,832 [Thread-2:424] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /download/psd.psd
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 123, in get_response
+    response = middleware_method(request)
+  File "G:\django_basic_venv\lib\site-packages\django\middleware\common.py", line 61, in process_request
+    if self.should_redirect_with_slash(request):
+  File "G:\django_basic_venv\lib\site-packages\django\middleware\common.py", line 79, in should_redirect_with_slash
+    not urlresolvers.is_valid_path(request.path_info, urlconf)
+  File "G:\django_basic_venv\lib\site-packages\django\core\urlresolvers.py", line 668, in is_valid_path
+    resolve(path, urlconf)
+  File "G:\django_basic_venv\lib\site-packages\django\core\urlresolvers.py", line 534, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "G:\django_basic_venv\lib\site-packages\django\core\urlresolvers.py", line 376, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "G:\django_basic_venv\lib\site-packages\django\core\urlresolvers.py", line 248, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "G:\django_basic_venv\lib\site-packages\django\core\urlresolvers.py", line 255, in callback
+    self._callback = get_callable(self._callback_str)
+  File "G:\django_basic_venv\lib\site-packages\django\core\urlresolvers.py", line 115, in get_callable
+    mod = import_module(mod_name)
+  File "G:\django_basic_venv\lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 986, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 969, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 958, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 673, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 662, in exec_module
+  File "<frozen importlib._bootstrap>", line 222, in _call_with_frames_removed
+  File "G:\website\blog_project\demo\views.py", line 3, in <module>
+    from django.http import StreamingHttpRespons
+ImportError: cannot import name 'StreamingHttpRespons'
+2016-10-06 19:20:55,654 [Thread-9:4760] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /download/1.png
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "G:\website\blog_project\demo\views.py", line 47, in file_download
+    response = HttpResponse(readFile(name))
+  File "G:\django_basic_venv\lib\site-packages\django\http\response.py", line 285, in __init__
+    self.content = content
+  File "G:\django_basic_venv\lib\site-packages\django\http\response.py", line 313, in content
+    value = b''.join(self.make_bytes(chunk) for chunk in value)
+  File "G:\django_basic_venv\lib\site-packages\django\http\response.py", line 313, in <genexpr>
+    value = b''.join(self.make_bytes(chunk) for chunk in value)
+  File "G:\website\blog_project\demo\views.py", line 37, in readFile
+    with open(name, "rb") as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'download/1.png'
+2016-10-06 20:33:24,879 [Thread-2:8372] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /download/1.png
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "G:\website\blog_project\demo\views.py", line 48, in file_download
+    response = HttpResponse(readFile(name))
+  File "G:\django_basic_venv\lib\site-packages\django\http\response.py", line 285, in __init__
+    self.content = content
+  File "G:\django_basic_venv\lib\site-packages\django\http\response.py", line 313, in content
+    value = b''.join(self.make_bytes(chunk) for chunk in value)
+  File "G:\django_basic_venv\lib\site-packages\django\http\response.py", line 313, in <genexpr>
+    value = b''.join(self.make_bytes(chunk) for chunk in value)
+  File "G:\website\blog_project\demo\views.py", line 37, in readFile
+    with open(name, "rb") as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'download/1.png'
+2016-10-06 20:34:37,505 [Thread-2:5104] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /download/1.png
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "G:\website\blog_project\demo\views.py", line 48, in file_download
+    response = HttpResponse(readFile(name))
+  File "G:\django_basic_venv\lib\site-packages\django\http\response.py", line 285, in __init__
+    self.content = content
+  File "G:\django_basic_venv\lib\site-packages\django\http\response.py", line 313, in content
+    value = b''.join(self.make_bytes(chunk) for chunk in value)
+  File "G:\django_basic_venv\lib\site-packages\django\http\response.py", line 313, in <genexpr>
+    value = b''.join(self.make_bytes(chunk) for chunk in value)
+  File "G:\website\blog_project\demo\views.py", line 37, in readFile
+    with open(name, "rb") as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'download/1.png'
+2016-10-06 20:35:20,917 [Thread-2:6244] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /download/1.png
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "G:\website\blog_project\demo\views.py", line 48, in file_download
+    response = HttpResponse(readFile(name))
+  File "G:\django_basic_venv\lib\site-packages\django\http\response.py", line 285, in __init__
+    self.content = content
+  File "G:\django_basic_venv\lib\site-packages\django\http\response.py", line 313, in content
+    value = b''.join(self.make_bytes(chunk) for chunk in value)
+  File "G:\django_basic_venv\lib\site-packages\django\http\response.py", line 313, in <genexpr>
+    value = b''.join(self.make_bytes(chunk) for chunk in value)
+  File "G:\website\blog_project\demo\views.py", line 37, in readFile
+    with open(name, "rb") as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'download/1.png'
+2016-10-06 20:40:24,217 [Thread-2:7900] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /download/1.44
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "G:\website\blog_project\demo\views.py", line 50, in file_download
+    response = HttpResponse(readFile(name))
+  File "G:\django_basic_venv\lib\site-packages\django\http\response.py", line 285, in __init__
+    self.content = content
+  File "G:\django_basic_venv\lib\site-packages\django\http\response.py", line 313, in content
+    value = b''.join(self.make_bytes(chunk) for chunk in value)
+  File "G:\django_basic_venv\lib\site-packages\django\http\response.py", line 313, in <genexpr>
+    value = b''.join(self.make_bytes(chunk) for chunk in value)
+  File "G:\website\blog_project\demo\views.py", line 38, in readFile
+    with open(name, "rb") as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'download/1.44'
+2016-10-06 20:43:31,158 [Thread-2:2352] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /download/1.44
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "G:\website\blog_project\demo\views.py", line 50, in file_download
+    response = HttpResponse(readFile(name))
+  File "G:\django_basic_venv\lib\site-packages\django\http\response.py", line 285, in __init__
+    self.content = content
+  File "G:\django_basic_venv\lib\site-packages\django\http\response.py", line 313, in content
+    value = b''.join(self.make_bytes(chunk) for chunk in value)
+  File "G:\django_basic_venv\lib\site-packages\django\http\response.py", line 313, in <genexpr>
+    value = b''.join(self.make_bytes(chunk) for chunk in value)
+  File "G:\website\blog_project\demo\views.py", line 36, in readFile
+    f = open(name, "rb")
+FileNotFoundError: [Errno 2] No such file or directory: 'download/1.44'
+2016-10-06 20:56:27,165 [Thread-2:4908] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /download/1.44
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "G:\website\blog_project\demo\views.py", line 53, in file_download
+    print ("file: "+file)
+TypeError: Can't convert 'generator' object to str implicitly
+2016-10-06 20:56:30,653 [Thread-3:3928] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /download/1.44
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "G:\website\blog_project\demo\views.py", line 53, in file_download
+    print ("file: "+file)
+TypeError: Can't convert 'generator' object to str implicitly
+2016-10-07 08:34:03,108 [Thread-63:12192] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur1.png
+2016-10-07 08:34:07,400 [Thread-65:11804] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur.png
+2016-10-07 19:18:52,853 [Thread-3:7116] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-10-07 19:52:53,204 [Thread-2:14036] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /test
+Traceback (most recent call last):
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "G:\django_basic_venv\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "G:\website\blog_project\demo\views.py", line 31, in test_ajax
+    return HttpResponse(test_ajax.html)
+AttributeError: 'function' object has no attribute 'html'
+2016-10-08 09:44:05,782 [Thread-5:11248] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-10-08 10:01:23,365 [Thread-3:10360] [django.request:182] [base:get_response] [WARNING]- Not Found: /index.html
+2016-10-08 10:02:00,266 [Thread-3:4760] [django.request:182] [base:get_response] [WARNING]- Not Found: /index.html
+2016-10-08 10:39:54,481 [Thread-8:7272] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur1.png
+2016-10-08 10:39:54,502 [Thread-9:8960] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur.png
+2016-10-08 10:40:30,063 [Thread-14:9596] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur1.png
+2016-10-08 10:40:30,115 [Thread-16:6296] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur.png
+2016-10-08 10:40:46,267 [Thread-22:13424] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur1.png
+2016-10-08 10:40:46,278 [Thread-23:15300] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur.png
+2016-10-08 10:40:57,902 [Thread-35:13716] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur1.png
+2016-10-08 10:40:58,003 [Thread-36:15240] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur.png
+2016-10-08 10:41:10,742 [Thread-41:6656] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur1.png
+2016-10-08 10:41:10,751 [Thread-40:12332] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur.png
+2016-10-08 10:41:27,163 [Thread-43:10960] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur1.png
+2016-10-08 10:41:27,339 [Thread-44:11284] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur.png
+2016-10-08 16:44:27,535 [Thread-6:14328] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur1.png
+2016-10-08 16:44:27,545 [Thread-7:3084] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur.png
+2016-10-08 17:06:27,179 [Thread-15:11588] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur1.png
+2016-10-08 17:06:27,499 [Thread-16:5152] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur.png
+2016-10-08 17:09:10,943 [Thread-5:3920] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur1.png
+2016-10-08 17:09:10,975 [Thread-6:1944] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur.png
+2016-10-08 17:10:24,719 [Thread-12:13560] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur1.png
+2016-10-08 17:10:24,770 [Thread-13:12124] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur.png
+2016-10-08 17:10:53,429 [Thread-7:7716] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur1.png
+2016-10-08 17:10:53,506 [Thread-8:4996] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur.png
+2016-10-08 17:11:44,625 [Thread-27:14752] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur1.png
+2016-10-08 17:11:44,637 [Thread-28:13628] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur.png
+2016-10-08 17:13:22,512 [Thread-47:4768] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur1.png
+2016-10-08 17:13:22,524 [Thread-48:204] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur.png
+2016-10-08 17:15:12,993 [Thread-62:3504] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur_white.png
+2016-10-08 17:20:09,299 [Thread-69:4452] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur1.png
+2016-10-08 17:20:09,321 [Thread-70:10900] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur.png
+2016-10-08 17:21:25,496 [Thread-85:5588] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur1.png
+2016-10-08 17:21:25,517 [Thread-90:9264] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur.png
+2016-10-08 17:26:40,853 [Thread-107:12280] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur1.png
+2016-10-08 17:26:40,879 [Thread-108:9884] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur.png
+2016-10-08 17:27:13,835 [Thread-109:11180] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur_white.png
+2016-10-08 17:27:13,843 [Thread-110:5936] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur.png
+2016-10-08 17:31:12,035 [Thread-116:9968] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur1.png
+2016-10-08 17:31:12,041 [Thread-117:8544] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur.png
+2016-10-08 17:31:43,403 [Thread-136:3916] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur1.png
+2016-10-08 17:31:43,415 [Thread-137:6896] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur.png
+2016-10-08 17:34:21,014 [Thread-154:13008] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur1.png
+2016-10-08 17:34:21,149 [Thread-155:5296] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur.png
+2016-10-08 17:44:41,044 [Thread-174:12176] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur1.png
+2016-10-08 17:44:41,074 [Thread-175:11404] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur.png
+2016-10-08 17:45:08,841 [Thread-192:1520] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur1.png
+2016-10-08 17:45:08,851 [Thread-195:11168] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur.png
+2016-10-08 17:47:19,960 [Thread-209:10936] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur1.png
+2016-10-08 17:47:19,978 [Thread-210:3232] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur.png
+2016-10-08 17:47:53,571 [Thread-217:4916] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur1.png
+2016-10-08 17:47:53,591 [Thread-218:6276] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur.png
+2016-10-08 18:11:33,906 [Thread-235:3916] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur1.png
+2016-10-08 18:11:33,932 [Thread-238:11688] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur.png
+2016-10-08 18:39:59,046 [Thread-252:14728] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur1.png
+2016-10-08 18:39:59,061 [Thread-253:9024] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur.png
+2016-10-08 18:40:17,908 [Thread-259:9824] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur1.png
+2016-10-08 18:40:17,997 [Thread-261:11064] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur.png
+2016-10-08 18:42:52,859 [Thread-268:11940] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur1.png
+2016-10-08 18:42:52,877 [Thread-270:1476] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur.png
+2016-10-08 18:42:58,055 [Thread-288:12408] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur1.png
+2016-10-08 18:42:58,096 [Thread-290:5892] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur.png
+2016-10-08 18:44:27,130 [Thread-308:13528] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur1.png
+2016-10-08 18:44:27,141 [Thread-310:4684] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur.png
+2016-10-08 18:55:48,462 [Thread-328:7192] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur1.png
+2016-10-08 18:55:48,484 [Thread-330:10064] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur.png
+2016-10-08 19:06:03,681 [Thread-344:14284] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur_white.png
+2016-10-08 19:06:09,056 [Thread-349:10216] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur1.png
+2016-10-08 19:06:09,068 [Thread-351:12444] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur.png

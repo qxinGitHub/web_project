@@ -1,0 +1,281 @@
+	/* 背景 */
+		.loading {
+		  background: #E3DCD3;
+		  position: fixed;
+		  top: 0;
+		  z-index: 1000;
+		  width: 100%;
+		  height: 100%;
+
+		  opacity: 1;
+		  transition: 1s;
+		}
+
+		.loading-spinner {
+		  position: absolute;
+		  z-index: 1001;
+		  top: 70%;
+		  right: 0;
+		  bottom: 0;
+		  left: 50%;
+		  margin:0 -20px;
+		}
+/* 转圈效果
+	http://codepen.io/msisto/details/LntJe/ */
+
+/* loading 效果
+	http://codepen.io/dissimulate/pen/vlfyA */
+/* 组合后的效果
+    http://iqingxin.cn/demo/loading */
+/* 转动的圈*/
+		@-webkit-keyframes rotate-forever {
+		  0% {
+		    -webkit-transform: rotate(0deg);
+		    -moz-transform: rotate(0deg);
+		    -ms-transform: rotate(0deg);
+		    -o-transform: rotate(0deg);
+		    transform: rotate(0deg);
+		  }
+		  100% {
+		    -webkit-transform: rotate(360deg);
+		    -moz-transform: rotate(360deg);
+		    -ms-transform: rotate(360deg);
+		    -o-transform: rotate(360deg);
+		    transform: rotate(360deg);
+		  }
+		}
+		@-moz-keyframes rotate-forever {
+		  0% {
+		    -webkit-transform: rotate(0deg);
+		    -moz-transform: rotate(0deg);
+		    -ms-transform: rotate(0deg);
+		    -o-transform: rotate(0deg);
+		    transform: rotate(0deg);
+		  }
+		  100% {
+		    -webkit-transform: rotate(360deg);
+		    -moz-transform: rotate(360deg);
+		    -ms-transform: rotate(360deg);
+		    -o-transform: rotate(360deg);
+		    transform: rotate(360deg);
+		  }
+		}
+		@keyframes rotate-forever {
+		  0% {
+		    -webkit-transform: rotate(0deg);
+		    -moz-transform: rotate(0deg);
+		    -ms-transform: rotate(0deg);
+		    -o-transform: rotate(0deg);
+		    transform: rotate(0deg);
+		  }
+		  100% {
+		    -webkit-transform: rotate(360deg);
+		    -moz-transform: rotate(360deg);
+		    -ms-transform: rotate(360deg);
+		    -o-transform: rotate(360deg);
+		    transform: rotate(360deg);
+		  }
+		}
+		.loading-spinner {
+		  -webkit-animation-duration: 0.75s;
+		  -moz-animation-duration: 0.75s;
+		  animation-duration: 0.75s;
+		  -webkit-animation-iteration-count: infinite;
+		  -moz-animation-iteration-count: infinite;
+		  animation-iteration-count: infinite;
+		  -webkit-animation-name: rotate-forever;
+		  -moz-animation-name: rotate-forever;
+		  animation-name: rotate-forever;
+		  -webkit-animation-timing-function: linear;
+		  -moz-animation-timing-function: linear;
+		  animation-timing-function: linear;
+		  height: 30px;
+		  width: 30px;
+		  border: 8px solid #999;
+		  border-right-color: transparent;
+		  border-radius: 50%;
+		  display: inline-block;
+		}
+
+/*-----------------------------------------------------------------------------*/
+		/* loading 文字 */
+		#load {
+		  position:absolute;
+		  /*z-index: 1001;*/
+		  width:600px;
+		  height:36px;
+		  left:50%;
+		  top:80%;
+		  margin-left:-300px;
+		  overflow:visible;
+		  -webkit-user-select:none;
+		  -moz-user-select:none;
+		  -ms-user-select:none;
+		  user-select:none;
+		  cursor:default;
+		}
+
+		#load div {
+			will-change:transform,opacity;
+
+		  position:absolute;
+		  width:20px;
+		  height:36px;
+		  opacity:0;
+		  font-family:Helvetica, Arial, sans-serif;
+		  animation:move 2s linear infinite;
+		  -o-animation:move 2s linear infinite;
+		  -moz-animation:move 2s linear infinite;
+		  -webkit-animation:move 2s linear infinite;
+		  transform:rotate(-180deg);
+		  -o-transform:rotate(-180deg);
+		  -moz-transform:rotate(-180deg);
+		  -webkit-transform:rotate(-180deg);
+		  color:#35C4F0;
+		  color:#444;
+		  font-weight: bolder;
+		}
+
+		#load div:nth-child(2) {
+		  animation-delay:0.2s;
+		  -o-animation-delay:0.2s;
+		  -moz-animation-delay:0.2s;
+		  -webkit-animation-delay:0.2s;
+		}
+		#load div:nth-child(3) {
+		  animation-delay:0.4s;
+		  -o-animation-delay:0.4s;
+		  -webkit-animation-delay:0.4s;
+		  -webkit-animation-delay:0.4s;
+		}
+		#load div:nth-child(4) {
+		  animation-delay:0.6s;
+		  -o-animation-delay:0.6s;
+		  -moz-animation-delay:0.6s;
+		  -webkit-animation-delay:0.6s;
+		}
+		#load div:nth-child(5) {
+		  animation-delay:0.8s;
+		  -o-animation-delay:0.8s;
+		  -moz-animation-delay:0.8s;
+		  -webkit-animation-delay:0.8s;
+		}
+		#load div:nth-child(6) {
+		  animation-delay:1s;
+		  -o-animation-delay:1s;
+		  -moz-animation-delay:1s;
+		  -webkit-animation-delay:1s;
+		}
+		#load div:nth-child(7) {
+		  animation-delay:1.2s;
+		  -o-animation-delay:1.2s;
+		  -moz-animation-delay:1.2s;
+		  -webkit-animation-delay:1.2s;
+		}
+
+		@keyframes move {
+		  0% {
+		    right:0;
+		    opacity:0;
+		  }
+			35% {
+				right: 41%; 
+				-moz-transform:rotate(0deg);
+				-webkit-transform:rotate(0deg);
+				-o-transform:rotate(0deg);
+				transform:rotate(0deg);
+				opacity:1;
+			}
+			65% {
+				right:59%; 
+				-moz-transform:rotate(0deg); 
+				-webkit-transform:rotate(0deg); 
+				-o-transform:rotate(0deg);
+				transform:rotate(0deg); 
+				opacity:1;
+			}
+			100% {
+				right:100%; 
+				-moz-transform:rotate(180deg); 
+				-webkit-transform:rotate(180deg); 
+				-o-transform:rotate(180deg); 
+				transform:rotate(180deg);
+				opacity:0;
+			}
+		}
+
+		@-moz-keyframes move {
+			0% {
+				left:0;
+				opacity:0;
+			}
+			35% {
+				left:41%;
+				-moz-transform:rotate(0deg);
+				transform:rotate(0deg);
+				opacity:1;
+			}
+			65% {
+				left:59%;
+				-moz-transform:rotate(0deg);
+				transform:rotate(0deg);
+				opacity:1;
+			}
+			100% {
+				left:100%;
+				-moz-transform:rotate(180deg);
+				transform:rotate(180deg);
+				opacity:0;
+			}
+		}
+
+		@-webkit-keyframes move {
+			0% {
+				left:0;
+				opacity:0;
+			}
+			35% {
+				left:41%;
+				-webkit-transform:rotate(0deg);
+				transform:rotate(0deg);
+				opacity:1;
+			}
+			65% {
+				left:59%;
+				-webkit-transform:rotate(0deg);
+				transform:rotate(0deg);
+				opacity:1;
+			}
+			100% {
+				left:100%;
+				-webkit-transform:rotate(180deg);
+				transform:rotate(180deg);
+				opacity:0;
+			}
+		}
+
+		@-o-keyframes move {
+			0% {
+				left:0;
+				opacity:0;
+			}
+			35% {
+				left:41%;
+				-o-transform:rotate(0deg);
+				transform:rotate(0deg);
+				opacity:1;
+			}
+			65% {
+				left:59%;
+				-o-transform:rotate(0deg);
+				transform:rotate(0deg);
+				opacity:1;
+			}
+			100% {
+				left:100%;
+				-o-transform:rotate(180deg);
+				transform:rotate(180deg);
+				opacity:0;
+			}
+		}
+		

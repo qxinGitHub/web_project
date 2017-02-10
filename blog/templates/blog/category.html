@@ -1,0 +1,83 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>内容页面</title>
+	<link rel="stylesheet" href="{% static 'blog/article.css' %}">
+</head>
+<body>
+	<header class="clearfix">
+		<nav class="nav">
+			<ul class="top-nav">
+				<li class="top-nav-item"><a href="/a">主页</a></li>
+				{% for category in category_list %}
+					<li class="top-nav-item">
+					<a href="{% url 'category' %}?cid={{ category.id }}">{{category.name}}</a>
+					</li>
+				{% endfor %}
+				<li class="top-nav-item"><a href="/about">关于</a></li>
+			</ul>
+        	<div class="top-nav-line" id="top-nav-line"></div>
+		</nav>
+	</header>
+	<!-- <div class="header-fill" style="height: 51px;width:100%"></div> -->
+	<article>
+		<aside class="clearfix">
+			<p>MEET ME</p>
+			<img src="{% static 'blog/images/000.jpg' %}" alt="头像">
+			<div class="me"><i class="iconfont">&#xe601;</i> 姓名 : 王庆欣<a href="http://iqingxin.cn" class="me-addition"> 简历</a></div>
+			<div class="me"><i class="iconfont">&#xe607;</i> 求职 : WEB前端<a href="http://iqingxin.cn" class="me-addition"> 简历</a></div>
+			<div class="me"><i class="iconfont">&#xe602;</i> 籍贯 : 山东省-临沂市<a href="http://iqingxin.cn" class="me-addition"> 现居湖南</a></div>
+			<div class="me"><i class="iconfont">&#xe604;</i> 电话 : 18773822412<a href="#" onclick="return false;" class="me-addition copy" data-content="王庆欣:18773822412"> 复制</a></div>
+			<div class="me"><i class="iconfont">&#xe605;</i> 邮箱 : qxguge@gmail.com<a href="#" onclick="return false;" class="me-addition copy" data-content="qxguge@gmail.com">复制</a></div>
+		</aside>
+		<!-- <h2>最新文章</h2> -->
+		<div class="article-item">
+			<div class="article-item-left">
+				<div class="article-publish-date"><i class="iconfont">&#xe603;</i> Apri 20,2016</div>
+				<div class="article-title"><a href="">这里是一个题目</a></div>
+			</div>
+			<div class="article-item-right">
+				<div class="article-tag"><i class="iconfont">&#xe606;</i> 标签</div>
+				<div class="article-desc">这里将是文章的内容简介这里将是文章的内容简介这里将是文章的内容简介这里将是文章的内容简介这里将是文章的内容简介这里将是文章的内容简介</div>
+				<div class="read-more"><a href="">READ MORE →</a></div>
+			</div>
+			<div class="bottom-line"></div>
+		</div>
+		{% for article in article_list %}
+		<div class="article-item">
+			<div class="article-item-left">
+				<div class="article-publish-date"><i class="iconfont">&#xe603;</i>
+					{{ article.date_publish | date:'M d,Y'}}
+				</div>
+				<div class="article-title"><a href="{% url 'article' %}?id={{ article.id }}">{{article.title}}</a></div>
+			</div>
+			<div class="article-item-right">
+				<div class="article-tag"><i class="iconfont">&#xe606;</i> 
+					{% for tag in article.tag.all %}
+					 {{tag.name}}
+					{% endfor %}
+				</div>
+				<div class="article-desc">
+                    {% if not article.desc %}
+                        {{ article.content|striptags|cut:"&nbsp;"|slice:"100"|add:"..." }}
+                    {% endif %}
+                    {% if article.desc %}
+                        {{ article.desc }}
+                    {% endif %}
+                </div>
+				<div class="read-more"><a href="{% url 'article' %}?id={{ article.id }}">READ MORE →</a></div>
+			</div>
+			<div class="bottom-line"></div>
+		</div>
+		{% endfor %}
+		{% include "blog/pagination.html" %}
+	</article>
+	<footer>
+		个人博客 <a href="http://www.miitbeian.gov.cn ">鲁ICP备16021217号-1</a>
+	</footer>
+	<!-- js未变 -->
+	<script src="{% static 'blog/article.js' %}"></script>
+</body>
+</html>

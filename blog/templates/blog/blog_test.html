@@ -1,0 +1,100 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>博客</title>
+	<link rel="stylesheet" href="{% static 'blog/style.css' %}">
+</head>
+<body>
+	<header>
+		<nav class="nav">
+			<ul class="top-nav">
+				<li class="top-nav-item top-nav-item-active"><a href="">主页</a></li>
+				<li class="top-nav-item"><a href="">python</a></li>
+				<li class="top-nav-item"><a href="">python</a></li>
+				<li class="top-nav-item"><a href="">python</a></li>
+				<li class="top-nav-item"><a href="">python</a></li>
+				<li class="top-nav-item"><a href="">关于</a></li>
+			</ul>
+        	<div class="top-nav-line" id="top-nav-line"></div>
+		</nav>
+	</header>
+	<article>
+		<aside>
+			<img src="{% static 'blog/images/000.jpg' %}" alt="头像">
+			<div class="me"><i class="iconfont">&#xe601;</i> 姓名 : 王庆欣<a href="http://ixin.ml" class="me-addition"> 简历</a></div>
+			<div class="me"><i class="iconfont">&#xe607;</i> 求职 : WEB前端<a href="http://ixin.ml" class="me-addition"> 简历</a></div>
+			<div class="me"><i class="iconfont">&#xe602;</i> 籍贯 : 山东省-临沂市<a href="http://ixin.ml" class="me-addition"> 现居湖南</a></div>
+			<div class="me"><i class="iconfont">&#xe604;</i> 电话 : 18773822412<a href="http://ixin.ml" class="me-addition"> 复制</a></div>
+			<div class="me"><i class="iconfont">&#xe605;</i> 邮箱 : qxguge@gmail.com<a href="http://ixin.ml" class="me-addition">复制</a></div>
+		</aside>
+		<!-- <h2>最新文章</h2> -->
+		<div class="article-item">
+			<div class="article-item-left">
+				<div class="article-publish-date"><i class="iconfont">&#xe603;</i> Apri 20,2016</div>
+				<div class="article-title"><a href="">这里是一个题目</a></div>
+			</div>
+			<div class="article-item-right">
+				<div class="article-tag"><i class="iconfont">&#xe606;</i> 标签</div>
+				<div class="article-desc">这里将是文章的内容简介这里将是文章的内容简介这里将是文章的内容简介这里将是文章的内容简介这里将是文章的内容简介这里将是文章的内容简介</div>
+				<div class="read-more"><a href="">READ MORE →</a></div>
+			</div>
+			<div class="bottom-line"></div>
+		</div>
+		<div class="article-item">
+			<div class="article-item-left">
+				<div class="article-publish-date"><i class="fa fa-calendar"> </i> Apri 20,2016</div>
+				<div class="article-title"><a href="">这里是一个题目,并且这个名字有点长</a></div>
+			</div>
+			<div class="article-item-right">
+				<div class="article-tag"><i class="fa fa-tags"></i> 标签</div>
+				<div class="article-desc">这里将是文章的内容简介这里将是文章的内容简介这里将是文章的内容简介这里将是文章的内容简介这里将是文章的内容简介这里将是文章的内容简介</div>
+				<div class="read-more"><a href="">READ MORE →</a></div>
+			</div>
+			<div class="bottom-line"></div>
+		</div>
+		<div class="article-item">
+			<div class="article-item-left">
+				<div class="article-publish-date"><i class="fa fa-calendar"> </i> Apri 20,2016</div>
+				<div class="article-title"><a href="">这里是长一点的一个题目</a></div>
+			</div>
+			<div class="article-item-right">
+				<div class="article-tag"><i class="fa fa-tags"></i> 标签</div>
+				<div class="article-desc">这里将是文章的内容简介这里将是文章的内容简介这里将是文章的内容简介这里将是文章的内容简介这里将是文章的内容简介这里将是文章的内容简介</div>
+				<div class="read-more"><a href="">READ MORE →</a></div>
+			</div>
+			<div class="bottom-line"></div>
+		</div>
+		<div class="article-item">
+			<div class="article-item-left">
+				<div class="article-publish-date"><i class="fa fa-calendar"> </i> Apri 20,2016</div>
+				<div class="article-title"><a href="">这里是一个题目</a></div>
+			</div>
+			<div class="article-item-right">
+				<div class="article-tag"><i class="fa fa-tags"></i> 标签</div>
+				<div class="article-desc">这里将是文章的内容简介这里将是文章的内容简介这里将是文章的内容简介这里将是文章的内容简介这里将是文章的内容简介这里将是文章的内容简介</div>
+				<div class="read-more"><a href="">READ MORE →</a></div>
+			</div>
+			<div class="bottom-line"></div>
+		</div>
+		<div class="article-item">
+			<div class="article-item-left">
+				<div class="article-publish-date"><i class="fa fa-calendar"> </i> Apri 20,2016</div>
+				<div class="article-title"><a href="">这里是一个题目</a></div>
+			</div>
+			<div class="article-item-right">
+				<div class="article-tag"><i class="fa fa-tags"></i> 标签</div>
+				<div class="article-desc">这里将是文章的内容简介这里将是文章的内容简介这里将是文章的内容简介这里将是文章的内容简介这里将是文章的内容简介这里将是文章的内容简介</div>
+				<div class="read-more"><a href="">READ MORE →</a></div>
+			</div>
+			<div class="bottom-line"></div>
+		</div>
+		
+	</article>
+	<footer>
+		个人博客 <a href="http://www.miitbeian.gov.cn ">鲁ICP备16021217号-1</a>
+	</footer>
+<script src="script.js"></script>
+</body>
+</html>
