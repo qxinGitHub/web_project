@@ -3,7 +3,12 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>博客</title>
+	{% if not category.name %}
+	<title>个人博客</title>
+	{%	endif %}
+	{% if category.name %}
+	<title>{{category.name}} - 博客</title>
+	{%	endif %}
 	<link rel="stylesheet" href="{% static 'blog/style.css' %}">
 </head>
 <body>

@@ -1132,3 +1132,5 @@ AttributeError: 'function' object has no attribute 'html'
 2016-10-08 19:06:03,681 [Thread-344:14284] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur_white.png
 2016-10-08 19:06:09,056 [Thread-349:10216] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur1.png
 2016-10-08 19:06:09,068 [Thread-351:12444] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/cur.png
+2017-02-12 13:56:55,561 [Thread-30:10828] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2017-02-12 15:24:09,312 [Thread-177:11248] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico

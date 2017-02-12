@@ -227,5 +227,5 @@ def category(request):
         article_list = getPage(request, article_list)
     except Exception as e:
         logger.error(e)
-    return render(request, 'blog/category.html', locals())
-    # return render(request, 'category.html', locals())
+    # return render(request, 'blog/category.html', locals())
+    return render(request, 'blog/blog.html', locals())

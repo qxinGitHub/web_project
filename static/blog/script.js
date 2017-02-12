@@ -16,14 +16,14 @@ obj.className = "top-nav-item top-nav-item-active";
 var setFooter = function(){
 	var screenH = window.innerHeight;
 	var header = document.getElementsByTagName("header")[0].offsetHeight;
-	console.log(screenH,header);
+	// console.log(screenH,header);
 	var footer = document.getElementsByTagName("article")[0];
 	// 122 = 文章的margin（40+40） + 底部（footer（margin40+height40+border2））的高度
 		//102 :文章的下margin和footer上margin重叠 需要在减去20
 				//782 802
 	// 底部一直位于底部,当高度不足600时,设置为600
 	footer.style.minHeight=(screenH-header-102)<600?"600px":(screenH-header-102)+"px";
-	console.log("最小高度: "+footer.style.minHeight);
+	// console.log("最小高度: "+footer.style.minHeight);
 }
 setFooter();
 
@@ -41,8 +41,8 @@ var left = 0,
 function asideFixed(){
     left = aside.offsetLeft;
     top = aside.offsetTop;
-    console.log("left: "+aside.offsetLeft);
-    console.log("top: "+aside.offsetTop);
+    // console.log("left: "+aside.offsetLeft);
+    // console.log("top: "+aside.offsetTop);
     if(document.body.scrollTop>navTop-20){
         // console.log(window.innerWidth);
         // var left = (window.innerWidth-1000)/2-7;

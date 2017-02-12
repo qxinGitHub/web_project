@@ -13,9 +13,9 @@ body{
         background-color: #93CBB6;
     }
 header{
-	width: 1000px;
+	/*width: 1000px;*/
 	margin: 0 auto;
-	background: url(images/b2.jpg) no-repeat;
+	background: url(images/b32清晰版.jpg) no-repeat;
 	background-size: cover;
 	background-position: center 0%;
 	height: 500px;
@@ -24,7 +24,8 @@ header{
 }
 
 nav{
-	margin: 0 auto;
+	margin: 0 15px 0 0;
+	/*margin-right:10px;*/
 	float: right;
 	position: relative;
 }
@@ -47,12 +48,14 @@ li{
 
 .top-nav-item a{
 	text-decoration: none;
-	color: #666;
+	color: #FFF;
+	/*color: #666;*/
 	transition: .3s;
 }
 .top-nav-item-active a{
 	/*color: #fff;*/
 	color: #6CBC9E;
+	font-weight:bold;
 }
 
 .top-nav-line{
