@@ -59,7 +59,33 @@ window.addEventListener("scroll",function(){
 window.addEventListener("resize",function(){
     asideFixed();
 });
-//  顶部 nav 动画
+
+// 固定顶部 nav
+var nav = $(".top-nav");
+// document.onmousewheel = function(e){
+//     e = e||window.event;
+//     // console.log(e);
+//     var wheelDelta = e.wheelDelta;
+//     if(wheelDelta > 0){
+//         // nav.style.position = "fixed";
+//         nav.className = "top-nav";
+//     }else{
+//         nav.className = "top-nav top-nav-active"
+//     }
+// }
+// document.addEventListener("mousewheel",function(e){
+//     e = e||window.event;
+//     // console.log(e);
+//     var wheelDelta = e.wheelDelta;
+//     if(wheelDelta > 0){
+//         // nav.style.position = "fixed";
+//         nav.className = "top-nav";
+//     }else{
+//         nav.className = "top-nav top-nav-active"
+//     }
+// })
+
+//  顶部 nav 动画 下面的线条移动
 (function(){
 
 var list = document.getElementsByClassName("top-nav")[0];
@@ -191,3 +217,18 @@ function addEvent(ele,event,handle){
         ele["on"+event] = handle;
     }
 }
+
+function $(obj){
+    return document.querySelector(obj);
+}
+document.addEventListener("mousewheel",function(e){
+    e = e||window.event;
+    // console.log(e);
+    var wheelDelta = e.wheelDelta;
+    if(wheelDelta > 0){
+        // nav.style.position = "fixed";
+        nav.className = "top-nav";
+    }else{
+        nav.className = "top-nav top-nav-active"
+    }
+})

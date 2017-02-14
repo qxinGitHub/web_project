@@ -1135,3 +1135,8 @@ AttributeError: 'function' object has no attribute 'html'
 2017-02-12 13:56:55,561 [Thread-30:10828] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
 2017-02-12 15:24:09,312 [Thread-177:11248] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
 2017-02-12 16:37:22,049 [Thread-19:4404] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2017-02-13 08:56:27,016 [Thread-7:4552] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2017-02-13 09:03:04,145 [Thread-13:5800] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2017-02-13 09:07:38,659 [Thread-17:664] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2017-02-13 09:17:31,935 [Thread-19:11416] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2017-02-13 17:01:53,728 [Thread-152:6868] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
