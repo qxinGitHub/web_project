@@ -206,3 +206,19 @@ function addEvent(ele,event,handle){
         ele["on"+event] = handle;
     }
 }
+
+function $(obj){
+    return document.querySelector(obj);
+}
+var nav = $(".top-nav")
+document.addEventListener("mousewheel",function(e){
+    e = e||window.event;
+    // console.log(e);
+    var wheelDelta = e.wheelDelta;
+    if(wheelDelta > 0){
+        // nav.style.position = "fixed";
+        nav.className = "top-nav";
+    }else{
+        nav.className = "top-nav top-nav-active"
+    }
+})
