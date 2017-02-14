@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>{{article.title}}</title>
+	<title>{{article.title}}--庆欣</title>
 	<link rel="stylesheet" href="{% static 'blog/article.css' %}">
 </head>
 <body>
@@ -15,8 +15,8 @@
 						<li class="top-nav-item"><a href="{% url 'category' %}?cid={{ category.id }}">{{category.name}}</a></li>
 						{% endfor %}
 						<li class="top-nav-item"><a href="/about">关于</a></li>
-					</ul>
 		        	<div class="top-nav-line" id="top-nav-line"></div>
+					</ul>
 				</nav>
 	</header>
 	<!-- <div class="header-fill" style="height: 51px;width:100%"></div> -->

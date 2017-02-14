@@ -77,7 +77,7 @@ li{
     /*width: 100px;*/
     height: 2px;
     background: #6CBC9E;
-    bottom: 5px;
+    bottom: 0px;
     transition: .8s;
 }
 .active{

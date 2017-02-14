@@ -33,9 +33,9 @@
 	header{
 		height: 50px;
         width: 100%;
-		background: rgba(238,238,238,.7);
-        position: fixed;
-        top:0;
+		/*background: rgba(238,238,238,.7);*/
+        /*position: fixed;*/
+        /*top:0;*/
         -webkit-transition: .5s;
         -moz-transition: .5s ;
         -ms-transition: .5s ;
@@ -45,36 +45,53 @@
 
 	nav{
 		background: #eee;
-		opacity: .7;
-		width: 1000px;
+		/*opacity: .7;*/
+		/*width: 1000px;*/
 		text-align: right;
-		position: fixed;
-		z-index: 1;
-		top: 0;
-		left: 50%;
-		transform: translate(-50%,0);
+		position: relative;
+		width: 100%;
+		height: 50px;
+		background: #000;
+		/*color: #fff;*/
+		/*position: fixed;*/
+		/*z-index: 1;*/
+		/*top: 0;*/
+		/*left: 50%;*/
+		/*transform: translate(-50%,0);
         -webkit-transition: all .5s;
         -moz-transition: all .5s;
         -ms-transition: all .5s;
         -o-transition: all .5s;
-        transition: all .5s;
-
-		border-bottom-left-radius:5px;
-		border-bottom-right-radius:5px;
+        transition: all .5s;*/
+		
+		/*border-bottom-left-radius:5px;*/
+		/*border-bottom-right-radius:5px;*/
+	}
+	.top-nav{
+		box-shadow: 0 2px 3px #999;
+		width: 100%;
+		background: #000;
+		/*text-align: right;*/
+		margin: 0;
+		padding: 0;
+		font-size: 0;
+		position: fixed;
+		top: 0;
+		opacity: 1;
+		transition: .5s;
+	}
+	.top-nav-active{
+		top: -100px;
+		opacity: 0;
 	}
 
-    header:hover{
+/*    header:hover{
         background: rgba(238,238,238,1);
     }
     header:hover nav{
         opacity:1;
-    }
-	.top-nav{
-		margin: 0;
-		padding: 0;
-		font-size: 0;
-	}
-	li{
+    }*/
+	header li{
 		display: inline-block;
 		list-style: none;
 	}
@@ -88,13 +105,14 @@
 
 	.top-nav-item a{
 		text-decoration: none;
-		color: #666;
+		color: #fff;
 		transition: .3s;
 		transition: .5s;
 	}
 	.top-nav-item-active a{
 		/*color: #fff;*/
 		color: #6CBC9E;
+		font-weight: bold;
 	}
 
 	.top-nav-line{
@@ -102,7 +120,7 @@
 	    /*width: 100px;*/
 	    height: 2px;
 	    background: #6CBC9E;
-	    bottom: 5px;
+	    bottom: 0px;
 	    transition: .8s;
 	}
 	.active{
@@ -218,6 +236,7 @@ iframe{
 aside{
 	/*display: inline-block;*/
 	float: right;
+	z-index: -1;
 	width: 280px;
 	height: 600px;
 	/*transition: 1s;*/

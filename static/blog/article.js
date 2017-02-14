@@ -206,7 +206,6 @@ function addEvent(ele,event,handle){
         ele["on"+event] = handle;
     }
 }
-
 function $(obj){
     return document.querySelector(obj);
 }
