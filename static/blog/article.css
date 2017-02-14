@@ -1,7 +1,11 @@
+	html{
+		transition: .5s;
+	}
 	body{
 		margin: 0;
 		font-family: "Microsoft YaHei";
 		color: #444;
+		/*transition: .5s;*/
 
 	}
 	.clearfix:after{
