@@ -442,6 +442,7 @@ h2{
         jq动画也不行,回归 css3 */
         /*弹窗的字数控制在26个以内,动画就不会发生位移*/
     transition: opacity .4s,top .4s;
+    text-decoration: line-through;
 }
 /*- 弹窗上的三角形 -*/
 .tip span{
