@@ -32,6 +32,7 @@ urlpatterns = [
     url(r'^m', views.phone,name="移动端简历"),
 
     url(r"^demo/(?P<name>[^/]+)/$", "demo.views.demo"),
+    url(r"^demo/(?P<name>ife/[^/]+)/$", "demo.views.demo"),
     url(r"^about", "blog.views.about"),
     url(r'^$', views.resume,name="简历"),
     # demo 分发

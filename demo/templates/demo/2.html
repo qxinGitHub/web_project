@@ -1,0 +1,91 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<title>任务三：三栏式布局</title>
+	<link rel="shortcut icon" href="{% static 'favicon.ico' %}" />
+	<style>
+		body{
+			margin: 0;
+		}
+		.wrap,
+		img,
+		.wrap>div{
+			border:1px solid #999;
+		}
+		.wrap>div{
+			background:#fff;
+			margin: 20px;
+			padding: 20px;
+		}
+		.wrap{
+			background:#EEEEEE;
+			margin: 20px;
+		}
+		.team{
+			width: 200px;
+			float: left;
+			box-sizing: border-box;
+		}
+		.team .team-title{
+			float: right;
+			margin-right:-10px;
+		}
+		img{
+			width: 80px;
+			height: 80px;
+		}
+		.team-member{
+			float: right;
+			width: 120px;
+			box-sizing: border-box;
+		}
+		.team-member img{
+			display: block;
+			margin: 0px 0 20px;
+		}
+
+		.wrap .team-info{
+			margin: 20px 160px 20px 240px;
+		}
+
+		.clearfix:after{
+			content: "";
+			display: block;
+			clear: both;
+		}
+		/*极端情况下的结果*/
+		@media screen and (max-width:500px){
+			.wrap>div{
+				float: none;
+			}
+			.wrap .team-info{
+				margin: 20px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap clearfix">
+		<div class="team clearfix">
+			<img class="team-logo" src="http://iqingxin.cn/static/resume/images/000.jpg" alt="">
+			<span class="team-title">iqingxin.cn</span>
+		</div>
+		<div class="team-member">
+			<img src="http://iqingxin.cn/static/resume/images/000.jpg" alt="">
+			<img src="http://iqingxin.cn/static/resume/images/000.jpg" alt="">
+			<img src="http://iqingxin.cn/static/resume/images/000.jpg" alt="">
+			<img src="http://iqingxin.cn/static/resume/images/000.jpg" alt="">
+		</div>
+		<div class="team-info">
+			<p>关于你们团队的介绍</p>
+			<p>可以给我们展示一下团队名称的来历，或是分别介绍你们团队的成员。</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit tempore obcaecati, esse doloribus enim nostrum magni, cumque optio repudiandae reiciendis reprehenderit atque! Deleniti numquam commodi maxime dolorum eum illum, magni.</p>
+			<p>lorem</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae libero tempora quos error, nam nisi ullam maiores facilis laborum quisquam, dolores quasi, quaerat placeat magnam officiis quod inventore id architecto.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum officia, provident exercitationem, repellat in voluptatum dolorem perferendis natus dolores? Recusandae numquam atque eaque minima ratione consequatur nihil amet voluptatem 。Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo aliquid, ut tempore nostrum quis labore deleniti vel cumque! Repudiandae harum repellat excepturi unde doloremque deleniti laudantium a consectetur tempora debitis?</natus></p>
+		</div>
+
+	</div>
+</body>
+</html>

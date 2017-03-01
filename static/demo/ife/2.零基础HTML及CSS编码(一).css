@@ -1,0 +1,138 @@
+body{
+	margin: 0;
+	background-color: #DEDEDE;
+	min-width: 1000px;
+}
+header{
+	background: #999;
+}
+header h1{
+	display: inline-block;
+	background: url(http://ife.baidu.com/2017/asset/common/img/logo_a3b4064.png) no-repeat;
+	background-size: contain;
+	font-size: 0;
+	height: 50px;
+	width: 200px;
+	margin-left: 50px;
+}
+header ul{
+	margin: 0;
+	float: right;
+	height: 70px;
+	line-height: 70px;
+}
+header li{
+	font-size: .8em;
+	margin:0 20px;
+	float: left;
+}
+header a{
+	color: #fff;
+	text-decoration: none;
+}
+header li:last-child a{
+	color: #ccc;
+}
+
+/*内容*/
+body>div{
+	background-color: #fff;
+	margin: 20px;
+	padding: 20px;
+	border: 1px solid #ccc;
+	box-shadow: 0 2px 2px  #666;
+}
+.title2{
+	color: #666;
+	font-size: 1em;
+}
+.author{
+	color: #666;
+	font-size: .8em;
+}
+.paragraph {
+	text-indent: 2em;
+}
+.article ul li{
+	list-style-type: none;
+}
+
+/*图片 images*/
+.images .img-item{
+	width: 150px;
+	height: 150px;
+	border: 1px solid #ccc;
+	text-align: center;
+	margin: 15px;
+}
+.images img{
+	width: 90%;
+}
+
+/*最后一篇文章*/
+.article3 ol li{
+	font-weight: 600;
+}
+table{
+	width: 100%;
+	font-size: .8em;
+	border-spacing: 0px;
+	border: none;
+}
+tr:first-child{
+	background: #333333;
+	color: #fff;
+	font-weight: 600;
+	border: none;
+}
+tr:last-child{
+	background:#ccc;
+	/*border: none;*/
+	font-weight: 600;
+}
+td{
+	border: 1px solid #ccc;
+	padding-left: 5px;
+}
+
+/*侧栏 sidebar*/
+.sidebar p{
+	font-size: .9em;
+}
+.sidebar h2{
+	font-size: 1.1em;
+	border-left: 3px solid #ccc;
+	padding: 5px 10px;
+}
+.sidebar .left{
+	display: inline-block;
+	width: 50%;
+	text-align: right;
+}
+.sidebar .tips{
+	color: #ccc;
+}
+textarea{
+	/*--0.0--*/
+	position: absolute;
+}
+.input{
+	width: 100%;
+	background: #3355D0;
+	color: #fff;
+	height: 40px;
+	border: none;
+	border-radius: 10px;
+	margin: 15px auto;
+	cursor: pointer;
+}
+
+/*版权*/
+footer{
+	width: 100%;
+	line-height: 50px;
+	background: #000;
+	color: #FFF;
+	text-align: center;
+	font-size: .8em;
+}

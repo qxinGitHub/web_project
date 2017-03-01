@@ -5,6 +5,7 @@ from django.http import HttpResponse
 def demo(request,name):
     print (name)
     html = "demo/"+name+".html"
+    print(html)
     try:
         return render(request, html, locals())
     except:
