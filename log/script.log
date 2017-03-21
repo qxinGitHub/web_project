@@ -1140,3 +1140,175 @@ AttributeError: 'function' object has no attribute 'html'
 2017-02-13 09:07:38,659 [Thread-17:664] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
 2017-02-13 09:17:31,935 [Thread-19:11416] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
 2017-02-13 17:01:53,728 [Thread-152:6868] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2017-02-14 09:50:46,103 [Thread-17:4144] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2017-02-14 14:11:25,782 [Thread-394:6116] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2017-02-14 15:22:02,537 [Thread-999:7972] [django.request:182] [base:get_response] [WARNING]- Not Found: /static¡¢blog/images/arrow1.png
+2017-02-25 18:36:35,702 [Thread-4:11108] [django.request:182] [base:get_response] [WARNING]- Not Found: /demo/2.Áã»ù´¡HTML¼°CSS±àÂë(Ò»)/2.Áã»ù´¡HTML¼°CSS±àÂë(Ò»).css
+2017-02-25 18:36:36,961 [Thread-5:11420] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2017-02-25 18:36:40,894 [Thread-6:5536] [django.request:182] [base:get_response] [WARNING]- Not Found: /demo/2.Áã»ù´¡HTML¼°CSS±àÂë(Ò»)/2.Áã»ù´¡HTML¼°CSS±àÂë(Ò»).css
+2017-02-26 14:30:18,305 [Thread-26:9196] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2017-02-26 14:35:42,674 [Thread-10:7224] [django.request:182] [base:get_response] [WARNING]- Not Found: /demo/three/2
+2017-02-26 14:44:21,884 [Thread-3:10624] [django.request:182] [base:get_response] [WARNING]- Not Found: /static/favicon.ico
+2017-02-26 14:44:55,293 [Thread-3:8292] [django.request:182] [base:get_response] [WARNING]- Not Found: /99
+2017-02-26 14:49:38,466 [Thread-5:11020] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /demo/three/
+Traceback (most recent call last):
+  File "G:\djangoVenv\lib\site-packages\django\template\base.py", line 508, in parse
+    compile_func = self.tags[command]
+KeyError: 'static'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\website\blog_project\demo\views.py", line 10, in demo
+    return render(request, html, locals())
+  File "G:\djangoVenv\lib\site-packages\django\shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "G:\djangoVenv\lib\site-packages\django\template\loader.py", line 96, in render_to_string
+    template = get_template(template_name, using=using)
+  File "G:\djangoVenv\lib\site-packages\django\template\loader.py", line 32, in get_template
+    return engine.get_template(template_name, dirs)
+  File "G:\djangoVenv\lib\site-packages\django\template\backends\django.py", line 40, in get_template
+    return Template(self.engine.get_template(template_name, dirs), self)
+  File "G:\djangoVenv\lib\site-packages\django\template\engine.py", line 190, in get_template
+    template, origin = self.find_template(template_name, dirs)
+  File "G:\djangoVenv\lib\site-packages\django\template\engine.py", line 157, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "G:\djangoVenv\lib\site-packages\django\template\loaders\base.py", line 46, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "G:\djangoVenv\lib\site-packages\django\template\base.py", line 189, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "G:\djangoVenv\lib\site-packages\django\template\base.py", line 231, in compile_nodelist
+    return parser.parse()
+  File "G:\djangoVenv\lib\site-packages\django\template\base.py", line 510, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "G:\djangoVenv\lib\site-packages\django\template\base.py", line 572, in invalid_block_tag
+    "or load this tag?" % (token.lineno, command)
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 5: 'static'. Did you forget to register or load this tag?
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\djangoVenv\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "G:\djangoVenv\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "G:\website\blog_project\demo\views.py", line 12, in demo
+    print(err)
+NameError: name 'err' is not defined
+2017-02-26 14:49:47,264 [Thread-6:4476] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /demo/3/
+Traceback (most recent call last):
+  File "G:\website\blog_project\demo\views.py", line 10, in demo
+    return render(request, html, locals())
+  File "G:\djangoVenv\lib\site-packages\django\shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "G:\djangoVenv\lib\site-packages\django\template\loader.py", line 96, in render_to_string
+    template = get_template(template_name, using=using)
+  File "G:\djangoVenv\lib\site-packages\django\template\loader.py", line 43, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: demo/3.html
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\djangoVenv\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "G:\djangoVenv\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "G:\website\blog_project\demo\views.py", line 12, in demo
+    print(err)
+NameError: name 'err' is not defined
+2017-02-26 14:52:30,159 [Thread-2:9716] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /demo/three/
+Traceback (most recent call last):
+  File "G:\djangoVenv\lib\site-packages\django\template\base.py", line 508, in parse
+    compile_func = self.tags[command]
+KeyError: 'static'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\djangoVenv\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "G:\djangoVenv\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "G:\website\blog_project\demo\views.py", line 10, in demo
+    return render(request, html, locals())
+  File "G:\djangoVenv\lib\site-packages\django\shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "G:\djangoVenv\lib\site-packages\django\template\loader.py", line 96, in render_to_string
+    template = get_template(template_name, using=using)
+  File "G:\djangoVenv\lib\site-packages\django\template\loader.py", line 32, in get_template
+    return engine.get_template(template_name, dirs)
+  File "G:\djangoVenv\lib\site-packages\django\template\backends\django.py", line 40, in get_template
+    return Template(self.engine.get_template(template_name, dirs), self)
+  File "G:\djangoVenv\lib\site-packages\django\template\engine.py", line 190, in get_template
+    template, origin = self.find_template(template_name, dirs)
+  File "G:\djangoVenv\lib\site-packages\django\template\engine.py", line 157, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "G:\djangoVenv\lib\site-packages\django\template\loaders\base.py", line 46, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "G:\djangoVenv\lib\site-packages\django\template\base.py", line 189, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "G:\djangoVenv\lib\site-packages\django\template\base.py", line 231, in compile_nodelist
+    return parser.parse()
+  File "G:\djangoVenv\lib\site-packages\django\template\base.py", line 510, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "G:\djangoVenv\lib\site-packages\django\template\base.py", line 572, in invalid_block_tag
+    "or load this tag?" % (token.lineno, command)
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 5: 'static'. Did you forget to register or load this tag?
+2017-02-26 14:52:34,938 [Thread-3:4460] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /demo/3/
+Traceback (most recent call last):
+  File "G:\djangoVenv\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "G:\djangoVenv\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "G:\website\blog_project\demo\views.py", line 10, in demo
+    return render(request, html, locals())
+  File "G:\djangoVenv\lib\site-packages\django\shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "G:\djangoVenv\lib\site-packages\django\template\loader.py", line 96, in render_to_string
+    template = get_template(template_name, using=using)
+  File "G:\djangoVenv\lib\site-packages\django\template\loader.py", line 43, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: demo/3.html
+2017-02-26 14:52:52,027 [Thread-5:4208] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /demo/three/
+Traceback (most recent call last):
+  File "G:\djangoVenv\lib\site-packages\django\template\base.py", line 508, in parse
+    compile_func = self.tags[command]
+KeyError: 'static'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\djangoVenv\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "G:\djangoVenv\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "G:\website\blog_project\demo\views.py", line 10, in demo
+    return render(request, html, locals())
+  File "G:\djangoVenv\lib\site-packages\django\shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "G:\djangoVenv\lib\site-packages\django\template\loader.py", line 96, in render_to_string
+    template = get_template(template_name, using=using)
+  File "G:\djangoVenv\lib\site-packages\django\template\loader.py", line 32, in get_template
+    return engine.get_template(template_name, dirs)
+  File "G:\djangoVenv\lib\site-packages\django\template\backends\django.py", line 40, in get_template
+    return Template(self.engine.get_template(template_name, dirs), self)
+  File "G:\djangoVenv\lib\site-packages\django\template\engine.py", line 190, in get_template
+    template, origin = self.find_template(template_name, dirs)
+  File "G:\djangoVenv\lib\site-packages\django\template\engine.py", line 157, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "G:\djangoVenv\lib\site-packages\django\template\loaders\base.py", line 46, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "G:\djangoVenv\lib\site-packages\django\template\base.py", line 189, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "G:\djangoVenv\lib\site-packages\django\template\base.py", line 231, in compile_nodelist
+    return parser.parse()
+  File "G:\djangoVenv\lib\site-packages\django\template\base.py", line 510, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "G:\djangoVenv\lib\site-packages\django\template\base.py", line 572, in invalid_block_tag
+    "or load this tag?" % (token.lineno, command)
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 5: 'static'. Did you forget to register or load this tag?
+2017-02-26 14:53:37,590 [Thread-5:12120] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2017-02-26 14:57:13,067 [Thread-19:3136] [django.request:182] [base:get_response] [WARNING]- Not Found: /static/favicon.ico
+2017-03-01 19:53:26,244 [Thread-26:6604] [django.request:182] [base:get_response] [WARNING]- Not Found: /demo/ife/2/
+2017-03-01 19:53:27,059 [Thread-27:3008] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico

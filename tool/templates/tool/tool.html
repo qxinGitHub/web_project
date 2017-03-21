@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tool</title>
+    <style>
+        button,textarea{
+            outline: none;
+        }
+        .wrap{
+            text-align: center;
+            /*width: 30%;*/
+            width: 500px;
+            padding: 20px;
+            margin: 0 0 0 50%;
+            transform: translate(-50%,0);
+        }
+        textarea{
+            resize: none;
+            padding: 5px;
+            border-radius: 5px;
+            border-color: #6CBC9E;
+        }
+        button{
+            font-size: 20px;
+            padding: 5px 20px;
+            color: #fff;
+            background-color: #6CBC9E;
+            border-style: solid;
+            border-width: 1px;
+            border-color: #ccc;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .display>div{
+            display: inline-block;
+            vertical-align: middle;
+            margin: 20px;
+        }
+        #displayImg{
+            width: 50px;
+            height: 50px;
+            /*border: none;*/
+            /*display: inline-block;*/
+        }
+        #displayImg[src="#"]{
+            width: 0px;
+            height: 0px;
+            display: none;
+        }
+        .finImg{
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-end;
+        }
+        .finImg>div{
+            cursor: pointer;
+            box-sizing: border-box;
+            border: 1px solid transparent;
+            transition: 1s;
+            border-radius: 10px;
+        }
+        .finImg>div:hover{
+            /*display: inline-block;*/
+            border: 1px solid red;
+        }
+        .finImg img{
+            display: block;
+            margin: 10px 0 10px 50%;
+            transform: translate(-50%,0);
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <!-- <div id="div"></div> -->
+        <!-- <input type="text" id="url"> -->
+        <!-- <p>起因:</p> -->
+        <textarea name="" cols="60" rows="3" id="inputURL" oninput="ajax()"></textarea>
+        <br>
+        <!-- <button onclick="ajax()">提交</button> -->
+        <button>提交</button>
+        <br>
+        <div class="display">
+            <div class="img"><img src="#" alt="" id="displayImg"></div>
+            宽度:<span class="w"></span>
+            高度:<span class="h"></span>
+            类型:<span class="format"></span>
+        </div>
+        <textarea name="" cols="60" rows="3" id="output"></textarea>
+        <div class="finImg">
+            <div class="base64" title="点击复制">
+                <img src="" alt="">
+                <button>原始base64</button>
+                <p></p>
+            </div>
+            <div class="img32" title="点击复制">
+                <img src="" alt="">
+                <button>32×32</button>
+                <p></p>
+            </div>
+            <div class="img16" title="点击复制">
+                <img src="" alt="">
+                <button>16×16</button>
+                <p></p>
+            </div>
+        </div>
+    </div>
+
+<script>
+        function $(ele){return document.querySelector(ele);}
+        var reg = /^\.(ico|img|png|jpg|jpeg|gif|bmp)$/i;
+        function ajax(){
+            var xmlhttp = null;
+            xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange=function(){
+                if(xmlhttp.readyState == 4 &&xmlhttp.status == 200){
+                    // var div = document.getElementById("div");
+                    $("#output").value = xmlhttp.responseText;
+                    // console.log(xmlhttp.responseText);
+                    var response =  JSON.parse(xmlhttp.responseText)
+                    console.log(typeof(response),response);
+                    $(".w").innerHTML = response.width;
+                    $(".h").innerHTML = response.height;
+                    $(".format").innerHTML = response.format;
+                    pro(response);
+                    // console.log(xmlhttp);
+                }
+            };
+            var input = $("#inputURL").value;
+            input = ~input.indexOf("http") ? input : "http://" + input ;
+            // console.log(input);
+            var index = input.lastIndexOf(".");
+            // console.log(index);
+            var ext = input.slice(index);
+            console.log(ext,input);
+            if(ext.match(reg)){
+                $("#displayImg").setAttribute("src",input);
+                console.log("success");
+                xmlhttp.open("GET","?url="+input,true);
+                xmlhttp.send(null);
+            }else{
+                console.log("fail!");
+            }
+        }
+
+       function pro(response){
+            var width = response.width;
+            var height = response.height;
+            var format = response.format;
+            base64 = response.base64;
+            img16 = response.img16;
+            img32 = response.img32;
+            var head = "";
+
+            console.log(width)
+            console.log(height)
+            console.log(format)
+            console.log(base64)
+            console.log(img16)
+            console.log(img32)
+
+            switch(format.toLowerCase()){
+                case "ico": head = "data:image/x-icon;base64,";break;
+                case "png": head = "data:image/png;base64,";break;
+                case "gif": head = "data:image/gif;base64,";break;
+                default: head = "data:image/jpeg;base64,";break;
+            }
+            base64 = head + base64;
+            img16 = head + img16;
+            img32 = head + img32;
+            console.log(base64);
+            console.log(img16);
+            console.log(img32);
+            $(".base64 img").setAttribute("src",base64);
+            $(".img32 img").setAttribute("src",img32);
+            $(".img16 img").setAttribute("src",img16);
+            $(".base64 p").innerHTML = "长度: "+ base64.length ;
+            $(".img32 p").innerHTML = "长度: "+ img32.length ;
+            $(".img16 p").innerHTML = "长度: "+ img16.length ;
+        }
+        function clipboard(text){
+            var node = document.createElement("textarea");
+            node.value = text;
+            document.body.appendChild(node);
+            node.select();
+            document.execCommand("Copy");
+            document.body.removeChild(node);
+        }
+
+        $(".base64").addEventListener("click",function(){
+            clipboard(base64)
+        });
+        $(".img32").addEventListener("click",function(){
+            clipboard(img32)
+        });
+        $(".img16").addEventListener("click",function(){
+            clipboard(img16)
+        });
+
+        var base64 = "";
+        var img32 = "";
+        var img16 = "";
+    </script>
+</body>
+</html>

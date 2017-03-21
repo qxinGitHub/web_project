@@ -42,5 +42,8 @@ urlpatterns = [
 #     文件下载
     url(r"^download/(?P<name>[^/]+)$", "demo.views.file_download", name="下载"),
 
+    url(r"tool/$","tool.views.index"),
+    # url(r"tool/(?P<url>.*)","tool.views.img2base")
+
 ]
 
