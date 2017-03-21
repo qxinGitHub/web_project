@@ -14,7 +14,7 @@ def img2base(request,url):
     print(webfile_base64)
     return HttpResponse(webfile_base64)
 
-def index(request):
+def img2base64(request):
     url = request.GET.get("url")
     # print(url)
     if url:

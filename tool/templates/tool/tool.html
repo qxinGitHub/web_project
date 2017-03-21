@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>tool</title>
+    <title>img2base64 图片转为base64编码</title>
+    <meta name="keywords" content="base64,data:image,在线转码,cssbase64">
+    <meta name="description" content="通过网址在线转换base64编码图片。"> 
+    <link rel="shortcut icon" href='/favicon.ico' /> 
     <style>
         button,textarea{
             outline: none;
@@ -75,7 +78,7 @@
     <div class="wrap">
         <!-- <div id="div"></div> -->
         <!-- <input type="text" id="url"> -->
-        <!-- <p>起因:</p> -->
+        <p>请在下面的输入框中输入图片连接</p>
         <textarea name="" cols="60" rows="3" id="inputURL" oninput="ajax()"></textarea>
         <br>
         <!-- <button onclick="ajax()">提交</button> -->
@@ -87,7 +90,7 @@
             高度:<span class="h"></span>
             类型:<span class="format"></span>
         </div>
-        <textarea name="" cols="60" rows="3" id="output"></textarea>
+        <!-- <textarea name="" cols="60" rows="3" id="output"></textarea> -->
         <div class="finImg">
             <div class="base64" title="点击复制">
                 <img src="" alt="">
@@ -105,6 +108,11 @@
                 <p></p>
             </div>
         </div>
+        <div class="about">
+            <p>起因: 因为在做一个脚本中需要使用大量的 base64 编码的图片,而这些图片都是些网站的icon, 在我需要转这些图片的时候发现在线的没有一个符合我要求的,都需要下载下来在上传进行编码,而没有直接通过网址获取的, 然后这个工具就诞生了</p>
+            <p>后续: 1.增加本地上传, 2.base64转img(这个简单)</p>
+            <p>用ie打开这个网页简直惨不忍睹</p>
+        </div>
     </div>
 
 <script>
@@ -116,7 +124,7 @@
             xmlhttp.onreadystatechange=function(){
                 if(xmlhttp.readyState == 4 &&xmlhttp.status == 200){
                     // var div = document.getElementById("div");
-                    $("#output").value = xmlhttp.responseText;
+                    // $("#output").value = xmlhttp.responseText;
                     // console.log(xmlhttp.responseText);
                     var response =  JSON.parse(xmlhttp.responseText)
                     console.log(typeof(response),response);
