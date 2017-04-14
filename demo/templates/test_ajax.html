@@ -6,8 +6,23 @@
 </head>
 <body>
     <div id="div">这里什么都没有</div>
-    <input type="button" value="click" onclick="javascript:ajax();" id="but">
+    <input type="button" value="click" onclick="javascript:ajax(this);" id="but">
+{#    <form id="myform" action="../tool/img2base64/" method="post" enctype="multipart/form-data">#}
+{#        <input type="file" id="file" name="file">#}
+{#        <span onclick="imgChange()">这其实是个按钮</span>#}
+{#        <input type="submit" value="上传" />#}
+{##}
+{#    </form>#}
+    <br/><br/>
+    <form id="form2"  enctype="multipart/form-data" method="post">
+        <input type="file" id="file2" name="file" onchange="imgChange()">
+        <input type="submit" value="fuck">
+    </form>
+    <button></button>
+    <br/>
+    <img id="img" src="" alt="">
     <script>
+        function $(ele){return document.querySelector(ele);}
         function ajax(){
 
             var xmlhttp = null;
@@ -23,7 +38,57 @@
 {#            print("xmlhttp:%s"%xmlhttp);#}
 
         }
+        function upload(){
+            console.log("upload");
+            source = $("#file");
+            var file = source.files[0];
+            var reader = new FileReader();
 
+            reader.onloadend = function(){
+               console.log("start: ")
+                var xhr = new XMLHttpRequest();
+                xhr.open("post","../tool/img2base64/",true)
+                xhr.setRequestHeader('Content-Type', 'multipart/form-data; charset-UTF-8');
+{#                xhr.sendAsBinary(reader.result);#}
+                xhr.send("data="+reader.result)
+                console.log(reader.result);
+                console.log("end ");
+
+            }
+            reader.readAsBinaryString(file);
+        }
+        var f = $("#form2");
+        f.addEventListener("submit",function(ev){
+            var oData = new FormData(f);
+            var req = new XMLHttpRequest();
+            req.open("post","../tool/img2base64/",true);
+            req.send(oData);
+            ev.preventDefault()
+        })
+        function imgChange(){
+            source = $("#file2");
+            var file = source.files[0];
+            var reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onloadend = function(){
+                $("#img").setAttribute("src",reader.result);
+                uploadServer()
+            }
+        }
+        function uploadServer(){
+            console.log("uploadServer");
+            //var oform = $("#form2");
+            var oData = new FormData($("#form2"));
+            var req = new XMLHttpRequest();
+            req.open("post","../tool/img2base64/",true);
+            req.send(oData);
+{#            ev.preventDefault()#}
+        }
+
+
+        $("button").onclick = function(){
+            upload();
+        }
     </script>
 </body>
 </html>

@@ -243,6 +243,7 @@ aside{
 	z-index: -1;
 	width: 280px;
 	height: 600px;
+	z-index: 1;
 	/*transition: 1s;*/
 	/*background: #ccc;*/
 }
@@ -298,6 +299,9 @@ aside .me:hover{
 }
 aside .me:hover .me-addition{
 	opacity: 1;
+}
+aside a{
+	color: #366352;
 }
 
 /*footer*/

@@ -18,31 +18,36 @@
             margin: 0 0 0 50%;
             transform: translate(-50%,0);
         }
+        .wrap>div{
+            margin: 20px;
+        }
         textarea{
             resize: none;
             padding: 5px;
             border-radius: 5px;
             border-color: #6CBC9E;
         }
-        button{
+        .button{
             font-size: 20px;
             padding: 5px 20px;
-            color: #fff;
-            background-color: #6CBC9E;
+            /*color: #fff;*/
+            color: #6CBC9E;
+            /*background-color: #6CBC9E;*/
             border-style: solid;
             border-width: 1px;
-            border-color: #ccc;
+            border-color: #6CBC9E;
             border-radius: 10px;
             cursor: pointer;
         }
-        .display>div{
+        /*.display>div{
             display: inline-block;
             vertical-align: middle;
             margin: 20px;
-        }
+        }*/
         #displayImg{
-            width: 50px;
-            height: 50px;
+            min-width: 50px;
+            max-width: 450px;
+{#          height: 50px;#}
             /*border: none;*/
             /*display: inline-block;*/
         }
@@ -63,7 +68,7 @@
             transition: 1s;
             border-radius: 10px;
         }
-        .finImg>div:hover{
+        .finImg .button:hover{
             /*display: inline-block;*/
             border: 1px solid red;
         }
@@ -78,80 +83,115 @@
     <div class="wrap">
         <!-- <div id="div"></div> -->
         <!-- <input type="text" id="url"> -->
-        <p>请在下面的输入框中输入图片连接</p>
+        <p>请输入图片连接 或 base64编码</p>
         <textarea name="" cols="60" rows="3" id="inputURL" oninput="ajax()"></textarea>
         <br>
-        <!-- <button onclick="ajax()">提交</button> -->
-        <button>提交</button>
+        <!-- 上传文件    -->
+        <div><form  enctype="multipart/form-data" method="post" id="uploadForm">
+            <input type="file" id="upload" name="file" accept="image/png,image/gif,image/jpeg,image/x-icon" style="display:none" onchange="imgUpload()"/>
+            <label for="upload" class="button">或上传文件</label>
+        </form></div>
+        <!-- <br> -->
+        <!-- 提示 -->
+        <div id="tip"></div>
+        <div class="img"><img src="#" alt="" id="displayImg"></div>
         <br>
+        <!-- 展示相关信息 -->
         <div class="display">
-            <div class="img"><img src="#" alt="" id="displayImg"></div>
             宽度:<span class="w"></span>
             高度:<span class="h"></span>
             类型:<span class="format"></span>
         </div>
-        <!-- <textarea name="" cols="60" rows="3" id="output"></textarea> -->
+        <!-- 最终结果图片 -->
         <div class="finImg">
             <div class="base64" title="点击复制">
                 <img src="" alt="">
-                <button>原始base64</button>
+                <span class="button">原始base64</span>
                 <p></p>
             </div>
             <div class="img32" title="点击复制">
                 <img src="" alt="">
-                <button>32×32</button>
+                <span class="button">32×32</span>
                 <p></p>
             </div>
             <div class="img16" title="点击复制">
                 <img src="" alt="">
-                <button>16×16</button>
+                <span class="button">16×16</span>
                 <p></p>
             </div>
         </div>
         <div class="about">
-            <p>起因: 因为在做一个脚本中需要使用大量的 base64 编码的图片,而这些图片都是些网站的icon, 在我需要转这些图片的时候发现在线的没有一个符合我要求的,都需要下载下来在上传进行编码,而没有直接通过网址获取的, 然后这个工具就诞生了</p>
-            <p>后续: 1.增加本地上传, 2.base64转img(这个简单)</p>
-            <p>用ie打开这个网页简直惨不忍睹</p>
+            <p>起因: 因为在做一个脚本中需要使用大量的 base64 编码的图片,刚好这些图片都是些网站的icon,而在线转码工具中的没有一个符合我要求的,都需要下载在上传进行转码,而没有直接通过网址获取后转码的, 然后这个工具就诞生了</p>
+            <p>后续: <br><span style="text-decoration: line-through;">1.增加本地上传, 2.base64转img(这个简单), </span>3.增加拖拽上传, 4.自定义base64图片宽高</p>
+            <p>IE浏览器暂不支持</p>
         </div>
     </div>
 
 <script>
         function $(ele){return document.querySelector(ele);}
-        var reg = /^\.(ico|img|png|jpg|jpeg|gif|bmp)$/i;
+
         function ajax(){
             var xmlhttp = null;
             xmlhttp = new XMLHttpRequest();
             xmlhttp.onreadystatechange=function(){
                 if(xmlhttp.readyState == 4 &&xmlhttp.status == 200){
-                    // var div = document.getElementById("div");
-                    // $("#output").value = xmlhttp.responseText;
-                    // console.log(xmlhttp.responseText);
                     var response =  JSON.parse(xmlhttp.responseText)
-                    console.log(typeof(response),response);
-                    $(".w").innerHTML = response.width;
-                    $(".h").innerHTML = response.height;
-                    $(".format").innerHTML = response.format;
                     pro(response);
-                    // console.log(xmlhttp);
+                    tipFun("处理完成","#6CBC9E");
                 }
             };
-            var input = $("#inputURL").value;
-            input = ~input.indexOf("http") ? input : "http://" + input ;
+            var inputData = $("#inputURL").value;
+            input = ~inputData.indexOf("http") ? inputData : "http://" + inputData ;
             // console.log(input);
             var index = input.lastIndexOf(".");
             // console.log(index);
             var ext = input.slice(index);
             console.log(ext,input);
             if(ext.match(reg)){
+                tipFun("请求处理中...","#6CBC9E");
                 $("#displayImg").setAttribute("src",input);
                 console.log("success");
                 xmlhttp.open("GET","?url="+input,true);
                 xmlhttp.send(null);
             }else{
-                console.log("fail!");
+                // console.log("fail!");
+                base2img(inputData);
             }
         }
 
+        // 将base64 图片转为 img
+        function base2img(input){
+            if(~input.indexOf("data:image")){
+                // ("#displayImg").setAttribute("src",input);
+            }else if (~input.indexOf(",")){
+                var index = input.indexOf(",");
+                input = "data:image/x-icon;base64" + input.slice(index);
+                console.log(input);
+            }else{
+                input = "data:image/x-icon;base64," + input
+            }
+            console.log(input)
+            $("#displayImg").setAttribute("src",input);
+            imgComplete($("#displayImg"));
+        }
+        // 判断图片是否加载成功
+        function imgComplete(img){
+            console.log(img.complete);
+            // 有时会失败 ?
+            if(!img.complete){
+                // img.style.display = "none";
+                tipFun("无法解析,请重新输入","red")
+            }else{
+                // img.style.display = "inline-block";
+                tipFun("加载成功,只是转为图片","#6CBC9E","#6CBC9E")
+            }
+            // 将下方的三个图片清空
+            $(".base64 img").removeAttribute("src");
+            $(".img32 img").removeAttribute("src");
+            $(".img16 img").removeAttribute("src");
+  
+        }
+        // 将ajax返回的数据解析;
        function pro(response){
             var width = response.width;
             var height = response.height;
@@ -161,13 +201,6 @@
             img32 = response.img32;
             var head = "";
 
-            console.log(width)
-            console.log(height)
-            console.log(format)
-            console.log(base64)
-            console.log(img16)
-            console.log(img32)
-
             switch(format.toLowerCase()){
                 case "ico": head = "data:image/x-icon;base64,";break;
                 case "png": head = "data:image/png;base64,";break;
@@ -175,11 +208,17 @@
                 default: head = "data:image/jpeg;base64,";break;
             }
             base64 = head + base64;
-            img16 = head + img16;
-            img32 = head + img32;
-            console.log(base64);
-            console.log(img16);
-            console.log(img32);
+           // 此处16*16与32*32的图片统一转码为png -20170329
+            img16 = "data:image/png;base64," + img16;
+            img32 = "data:image/png;base64," + img32;
+{#            console.log(base64);#}
+{#            console.log(img16);#}
+{#            console.log(img32);#}
+           // 图片的相关数据
+            $(".w").innerHTML = width;
+            $(".h").innerHTML = height;
+            $(".format").innerHTML = format;
+           // 展示图片
             $(".base64 img").setAttribute("src",base64);
             $(".img32 img").setAttribute("src",img32);
             $(".img16 img").setAttribute("src",img16);
@@ -187,6 +226,7 @@
             $(".img32 p").innerHTML = "长度: "+ img32.length ;
             $(".img16 p").innerHTML = "长度: "+ img16.length ;
         }
+        // 复制到剪贴板
         function clipboard(text){
             var node = document.createElement("textarea");
             node.value = text;
@@ -194,6 +234,58 @@
             node.select();
             document.execCommand("Copy");
             document.body.removeChild(node);
+        }
+
+        // 提示
+        function tipFun(txt,color,borderC){
+            borderC = borderC ? borderC : color;
+            inputURL.style.borderColor = borderC;
+            tip.innerHTML = txt;
+            tip.style.color = color;
+        }
+
+        // 上传图片
+        function imgUpload(){
+            console.log("imgUpload: start");
+            var img  = $("#upload").files[0];
+            var reader = new FileReader();
+            reader.readAsDataURL(img);
+            console.log(reader);
+            reader.onloadend = function(){
+                var displayImg = $("#displayImg");
+                displayImg.src = reader.result;
+                console.log(displayImg.complete,displayImg);
+                // 加个延迟，不然判断图片是否加载成功一直false
+                    // 结果证明，这样根本没用
+                setTimeout(function(){
+                    console.log($("#displayImg").complete);
+                    if(displayImg.complete){
+                        tipFun("正在上传。。","#6CBC9E");
+                        uploadServer();
+                    }else{
+                        tipFun("无法解析上传的图片，","red");
+                        }
+                },50)
+            }
+
+        }
+        // 图片上传至服务器
+        function uploadServer(){
+            var oform = new FormData($("#uploadForm"));
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function(){
+                console.log(xhr.readyState,xhr.status)
+                if(xhr.readyState == 4 && xhr.status == 200){
+                    var response =  JSON.parse(xhr.responseText)
+                    pro(response);
+                    tipFun("处理完成","#6CBC9E");
+                }
+                if(xhr.status == 500){
+                    tipFun("无法完成处理，请确认图片信息","red");
+                }
+            }
+            xhr.open("post","./img2base64/",true);
+            xhr.send(oform);
         }
 
         $(".base64").addEventListener("click",function(){
@@ -206,9 +298,13 @@
             clipboard(img16)
         });
 
+        // 开始
+        var reg = /^\.(ico|img|png|jpg|jpeg|gif|bmp)$/i;
         var base64 = "";
         var img32 = "";
         var img16 = "";
+        var tip = $("#tip");
+        var inputURL = $("#inputURL");
     </script>
 </body>
 </html>

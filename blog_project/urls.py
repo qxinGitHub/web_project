@@ -21,8 +21,8 @@ from django.conf import settings
 from blog.upload import upload_image
 from blog.views import about
 from resume import views
-from tool.views import img2base64
-from demo.views import demo, test_ajax
+from demo.views import demo, test_ajax, trex, trexUpload ,trexRank
+from tool.views import img2base64, img2base64_upload
 # from demo.views import
 urlpatterns = [
     url(r'^favicon.ico$',RedirectView.as_view(url=r'static/favicon.ico')),
@@ -49,7 +49,14 @@ urlpatterns = [
 #     url(r"^download/(?P<name>[^/]+)$", "demo.views.file_download", name="下载"),
 
     url(r"tool/$",img2base64),
+    url(r"tool/img2base64/$",img2base64_upload),
     # url(r"tool/(?P<url>.*)","tool.views.img2base")
+
+#     小恐龙trex
+    url(r"^trex/$",trex),
+    url(r"trex/uploadStorage/$",trexUpload),
+    url(r"trex/rank/$",trexRank)
+
 
 ]
 

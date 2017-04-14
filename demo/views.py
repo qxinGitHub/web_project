@@ -1,7 +1,12 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+import json
+from demo.models import *
+
 # from django.http import StreamingHttpRespons
 # Create your views here.
+
+
 def demo(request,name):
     print (name)
     html = "demo/"+name+".html"
@@ -53,3 +58,51 @@ def file_download(request,name):
         response['Content-Disposition'] = 'attachment;filename="{0}"'.format(name)
     finally:
         return response
+
+
+def trex(request):
+    return render(request,"demo/trex.html")
+
+
+def trexRank(request):
+    lists = Trex.objects.all().order_by("-score")[0:9]
+
+    index = 1
+    result = '{"status":1,"result":['
+    print (type(lists),lists)
+    # {
+    #   "rank":"1",
+    #   "name":"hihi",
+    #   "score":"999"
+    # },
+    for list in lists:
+        print(list,type(list))
+        print (list.name,list.score)
+        result += '{"rank":"' + str(index) +'","name":"' + list.name + '","score":"' + str(list.score) + '"},'
+        index += 1
+
+    res = result[:-1] + "]}"
+    print(res)
+    # return render(request,"demo/trexjson.json")
+    return HttpResponse(res)
+
+
+def trexUpload(request):
+    # 获取ip 地址
+    try:
+        real_ip = request.META['HTTP_X_FORWARDED_FOR']
+        regip = real_ip.split(",")[0]
+    except:
+        try:
+            regip = request.META['REMOTE_ADDR']
+        except:
+            regip = ""
+    print(regip)
+    body = json.loads(request.body.decode())
+    print(body)
+    print(body["score"])
+    if body["name"]:
+        Trex.objects.create(name=body["name"],score=body["score"],runningTime=body["runningTime"],address=regip)
+    else:
+        Trex.objects.create(score=body["score"],runningTime=body["runningTime"],address=regip)
+    return HttpResponse("sucess")
